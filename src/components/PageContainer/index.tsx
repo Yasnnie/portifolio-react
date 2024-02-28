@@ -1,14 +1,19 @@
 import { theme } from '@/styles/theme'
 import styled from 'styled-components'
 import Header from '../Header'
+import { ReactNode } from 'react'
 
-export default function PageContainer() {
+interface Props {
+  children : ReactNode
+}
+
+export default function PageContainer({children}: Props) {
   return (
     <Container>
       <div className="c-main">
         <Header />
 
-        <main>oi</main>
+        <main>{children}</main>
       </div>
     </Container>
   )

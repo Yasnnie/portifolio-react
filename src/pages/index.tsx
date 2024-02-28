@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import PageContainer from '@/components/PageContainer'
+import HomeAbout from '@/components/HomeAbout'
+import Line from '@/components/Line'
 
 export default function Home() {
   return (
@@ -11,7 +13,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <PageContainer />
+      <PageContainer>
+        <HomeAbout />
+        <Line/>
+      </PageContainer>
     </>
   )
 }

@@ -92,11 +92,12 @@ export default function Header() {
 }
 
 const Container = styled.header`
-  width: 16.25rem;
+  min-width: 16.25rem;
+  max-width: 16.25rem;
 
   .c-header__c-img {
-    width: 160px;
-    height: 160px;
+    width: 10rem;
+    height: 10rem;
     overflow: hidden;
     border-radius: 100%;
     margin: 0 auto;
@@ -130,14 +131,14 @@ const Container = styled.header`
     .c-header__nav__link {
       font-size: 1rem;
       font-weight: 500;
-      line-height: 20px;
+      line-height: 1.25rem;
       letter-spacing: 0em;
       text-align: left;
-      border-radius: 6px;
-      padding: 10px 0.5rem;
+      border-radius:0.375rem;
+      padding: 0.625rem 0.5rem;
       font-weight: 500;
-      gap: 10px;
-      color: #fff;
+      gap: 0.625rem;
+      color: ${theme.white};
       display: flex;
       align-items: center;
       cursor: pointer;
@@ -150,9 +151,9 @@ const Container = styled.header`
   }
 
   .c-header__copyright {
-    font-size: 12px;
-    line-height: 12px;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
     letter-spacing: 0em;
-    color: #fff;
+    color: ${theme.white};
   }
 `
