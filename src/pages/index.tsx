@@ -3,6 +3,7 @@ import Image from 'next/image'
 import PageContainer from '@/components/PageContainer'
 import HomeAbout from '@/components/HomeAbout'
 import Line from '@/components/Line'
+import HomeProjects from '@/components/HomeProjects'
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <PageContainer>
         <HomeAbout />
         <Line/>
+        <HomeProjects/>
       </PageContainer>
     </>
   )

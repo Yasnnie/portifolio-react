@@ -12,7 +12,7 @@ export default function Contato() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PageContainer>
-      Contato
+        Contato
       </PageContainer>
     </>
   )
