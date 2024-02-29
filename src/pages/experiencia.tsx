@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import PageContainer from '@/components/PageContainer'
+import ExperienceContainer from '@/components/ExperienceContainer'
 
 export default function Experiencia() {
   return (
@@ -12,7 +12,7 @@ export default function Experiencia() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PageContainer>
-        Experiência
+        <ExperienceContainer />
       </PageContainer>
     </>
   )
