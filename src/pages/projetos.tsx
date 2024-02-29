@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import PageContainer from '@/components/PageContainer'
+import GridProjects from '@/components/GridProjects'
 
 export default function Projetos() {
   return (
@@ -12,7 +12,7 @@ export default function Projetos() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PageContainer>
-        Projetos
+        <GridProjects />
       </PageContainer>
     </>
   )

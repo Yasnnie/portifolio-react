@@ -46,6 +46,8 @@ const Container = styled.form`
   background: #0067ff0d;
   width: 100%;
   flex: 1;
+  max-width: 580px;
+  margin: 0 auto;
   padding: 24px;
   border-radius: 12px;
   gap: 20px;
