@@ -4,16 +4,16 @@ import Header from '../Header'
 import { ReactNode } from 'react'
 
 interface Props {
-  children : ReactNode
+  children: ReactNode
 }
 
-export default function PageContainer({children}: Props) {
+export default function PageContainer({ children }: Props) {
   return (
     <Container>
       <div className="c-main">
         <Header />
 
-        <main>{children}</main>
+        <main className="c-main__main">{children}</main>
       </div>
     </Container>
   )
@@ -36,5 +36,9 @@ const Container = styled.div`
     max-width: 67.5rem;
     display: flex;
     gap: 2.5rem;
+
+    .c-main__main {
+      width: 100%;
+    }
   }
 `

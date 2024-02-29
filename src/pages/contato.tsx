@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import PageContainer from '@/components/PageContainer'
+import FormContact from '@/components/FormContact'
 
 export default function Contato() {
   return (
@@ -12,7 +12,7 @@ export default function Contato() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PageContainer>
-        Contato
+        <FormContact />
       </PageContainer>
     </>
   )

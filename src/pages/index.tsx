@@ -1,9 +1,10 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import PageContainer from '@/components/PageContainer'
 import HomeAbout from '@/components/HomeAbout'
 import Line from '@/components/Line'
 import HomeProjects from '@/components/HomeProjects'
+import HomeContact from '@/components/HomeContact'
+import HomeRecommendations from '@/components/HomeRecommendations'
 
 export default function Home() {
   return (
@@ -16,8 +17,12 @@ export default function Home() {
       </Head>
       <PageContainer>
         <HomeAbout />
-        <Line/>
-        <HomeProjects/>
+        <Line />
+        <HomeRecommendations />
+        <Line />
+        <HomeProjects />
+        <Line />
+        <HomeContact />
       </PageContainer>
     </>
   )

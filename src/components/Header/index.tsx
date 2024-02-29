@@ -11,12 +11,10 @@ import WhiteProject from '/public/assets/icon/WhiteProject.svg'
 import WhitePhone from '/public/assets/icon/WhitePhone.svg'
 
 import BlueHome from '/public/assets/icon/BlueHome.svg'
-import BlueProfile from '/public/assets/icon/BlueProfile.svg'
 import BlueWork from '/public/assets/icon/BlueWork.svg'
 import BlueProject from '/public/assets/icon/BlueProject.svg'
 import BluePhone from '/public/assets/icon/BluePhone.svg'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
 const NavOptions = [
@@ -24,60 +22,59 @@ const NavOptions = [
     text: 'Início',
     icon: WhiteHome,
     selectIcon: BlueHome,
-    link: "/"
+    link: '/',
   },
   {
     text: 'Sobre',
     icon: WhiteProfile,
     selectIcon: WhiteProfile,
-    link: "/sobre"
+    link: '/sobre',
   },
   {
     text: 'Experiência',
     icon: WhiteWork,
     selectIcon: BlueWork,
-    link: "/experiencia"
+    link: '/experiencia',
   },
   {
     text: 'Projetos',
     icon: WhiteProject,
     selectIcon: BlueProject,
-    link: "/projetos"
+    link: '/projetos',
   },
   {
     text: 'Contato',
     icon: WhitePhone,
     selectIcon: BluePhone,
-    link: "/contato"
+    link: '/contato',
   },
 ]
 
 export default function Header() {
-    const router = useRouter()
-
+  const router = useRouter()
 
   return (
     <Container>
       <div className="c-header__c-img">
-        <Image
-          src={ProfileImg}
-          alt="foto perfil Yasmin"
-          objectFit="contain"
-          fill
-          quality={100}
-        />
+        <Image src={ProfileImg} alt="foto perfil Yasmin" fill quality={100} />
       </div>
       <h1 className="c-header__title">Yasmin Carvalho</h1>
       <p className="c-header__subtitle">Desenvolvedora Web e Mobile</p>
 
       <nav className="c-header__nav">
-        {NavOptions.map((item) => {
-            const isSelect = router.asPath == item.link
+        {NavOptions.map((item, index) => {
+          const isSelect = router.asPath == item.link
 
           return (
-            <Link href={item.link} passHref legacyBehavior>
-              <a className={`c-header__nav__link ${isSelect && 'c-header__nav__link--selected'}`}>
-                <Image src={isSelect ? item.selectIcon : item.icon} alt="icone" /> {item.text}
+            <Link href={item.link} passHref legacyBehavior key={index}>
+              <a
+                className={`c-header__nav__link ${isSelect && 'c-header__nav__link--selected'}`}
+              >
+                <Image
+                  src={isSelect ? item.selectIcon : item.icon}
+                  alt="icone"
+                />{' '}
+                {item.text}
               </a>
             </Link>
           )
@@ -134,7 +131,7 @@ const Container = styled.header`
       line-height: 1.25rem;
       letter-spacing: 0em;
       text-align: left;
-      border-radius:0.375rem;
+      border-radius: 0.375rem;
       padding: 0.625rem 0.5rem;
       font-weight: 500;
       gap: 0.625rem;
@@ -143,10 +140,10 @@ const Container = styled.header`
       align-items: center;
       cursor: pointer;
     }
-    
-    .c-header__nav__link--selected{
-        background: rgba(0, 102, 255, 0.08);
-        color: ${theme.primaryBlue};
+
+    .c-header__nav__link--selected {
+      background: rgba(0, 102, 255, 0.08);
+      color: ${theme.primaryBlue};
     }
   }
 
