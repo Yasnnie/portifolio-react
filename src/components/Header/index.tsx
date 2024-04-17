@@ -2,7 +2,7 @@ import { theme } from '@/styles/theme'
 import Image from 'next/image'
 import styled from 'styled-components'
 
-import ProfileImg from '/public/assets/img/profile.png'
+import ProfileImg from '/public/assets/img/profile.jpeg'
 
 import WhiteHome from '/public/assets/icon/WhiteHome.svg'
 import WhiteProfile from '/public/assets/icon/WhiteProfile.svg'
@@ -56,7 +56,13 @@ export default function Header() {
   return (
     <Container>
       <div className="c-header__c-img">
-        <Image src={ProfileImg} alt="foto perfil Yasmin" fill quality={100} />
+        <Image
+          src={ProfileImg}
+          alt="foto perfil Yasmin"
+          fill
+          quality={100}
+          objectFit="cover"
+        />
       </div>
       <h1 className="c-header__title">Yasmin Carvalho</h1>
       <p className="c-header__subtitle">Desenvolvedora Web e Mobile</p>
