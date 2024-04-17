@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import WhiteGithub from '/public/assets/icon/WhiteGithub.svg'
 import WhiteInsta from '/public/assets/icon/WhiteInsta.svg'
 import WhiteLinkedin from '/public/assets/icon/WhiteLinkedin.svg'
+import WhiteEmail from '/public/assets/icon/WhiteEmail.svg'
 
 export default function Contact() {
   return (
@@ -23,7 +24,7 @@ export default function Contact() {
         >
           <Image src={WhiteLinkedin} alt="Linkedin" width={28} height={28} />
 
-          <span className="c-contact__link__text">Linkedin</span>
+          <span className="c-contact__link__text">/carvalho-yas</span>
         </a>
         <a
           className="c-contact__link"
@@ -42,6 +43,15 @@ export default function Contact() {
         >
           <Image src={WhiteInsta} alt="Instagram" width={28} height={28} />
           <span className="c-contact__link__text">@yas_fca</span>
+        </a>
+        <a
+          className="c-contact__link"
+          href="mailto:dev.cyas@gmail.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Image src={WhiteEmail} alt="Instagram" width={28} height={28} />
+          <span className="c-contact__link__text">dev.cyas@gmail.com</span>
         </a>
       </div>
     </Container>
@@ -90,24 +100,25 @@ const Container = styled.section`
     font-weight: 500;
     max-width: 30px;
     overflow: hidden;
-    transition: 0.34s;
+    transition: 0.6s;
     border-radius: 4px;
 
     .c-contact__link__text {
       position: relative;
+      word-break: keep-all;
       left: -100px;
       opacity: 0;
-      transition: 0.4s;
+      transition: 0.6s;
     }
 
     &:hover {
-      max-width: 120px;
+      max-width: 220px;
       padding: 4px 6px;
       background: ${theme.blue300};
-      transition: 0.4s;
+      transition: 0.6s;
 
       .c-contact__link__text {
-        transition: 0.4s;
+        transition: 0.6s;
         opacity: 1;
         left: 0px;
       }
