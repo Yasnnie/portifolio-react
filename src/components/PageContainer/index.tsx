@@ -9,7 +9,7 @@ interface Props {
 
 export default function PageContainer({ children }: Props) {
   return (
-    <Container>
+    <Container id="sobre">
       <div className="c-main">
         <Header />
 
@@ -33,9 +33,11 @@ const Container = styled.div`
 
   .c-main {
     width: 100%;
-    max-width: 67.5rem;
+    max-width: 68.75rem;
     display: flex;
-    gap: 2.5rem;
+    gap: 3.5rem;
+
+    position: relative;
 
     .c-main__main {
       width: 100%;

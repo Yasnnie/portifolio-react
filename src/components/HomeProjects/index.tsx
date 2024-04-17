@@ -1,24 +1,25 @@
 import styled from 'styled-components'
-import ProjectCard from '../ProjectCard'
 import { theme } from '@/styles/theme'
 import BlueArrow from '/public/assets/icon/BlueArrow.svg'
 import Image from 'next/image'
+import LineProjectCard from '../LineProjectCard'
 
 export default function HomeProjects() {
   return (
-    <Container>
+    <Container id="projetos">
       <div className="c-home-projects__d-flex">
         <h3 className="c-home-projects__title">Projetos</h3>
 
         <a className="c-home-projects__link">
-          Ver mais
+          Todos os projetos
           <Image src={BlueArrow} alt="icone ir" />
         </a>
       </div>
 
       <div className="c-home-projects__c-cards">
-        <ProjectCard />
-        <ProjectCard />
+        <LineProjectCard />
+        <LineProjectCard />
+        <LineProjectCard />
       </div>
     </Container>
   )
@@ -26,7 +27,7 @@ export default function HomeProjects() {
 
 const Container = styled.section`
   width: 100%;
-  margin: 28px 0;
+  padding: 32px 0;
 
   .c-home-projects__d-flex {
     width: 100%;
@@ -56,7 +57,7 @@ const Container = styled.section`
 
   .c-home-projects__c-cards {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 32px;
   }
 `

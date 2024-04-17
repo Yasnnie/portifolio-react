@@ -4,54 +4,46 @@ import styled from 'styled-components'
 
 import ProfileImg from '/public/assets/img/profile.jpeg'
 
-import WhiteHome from '/public/assets/icon/WhiteHome.svg'
 import WhiteProfile from '/public/assets/icon/WhiteProfile.svg'
 import WhiteWork from '/public/assets/icon/WhiteWork.svg'
 import WhiteProject from '/public/assets/icon/WhiteProject.svg'
 import WhitePhone from '/public/assets/icon/WhitePhone.svg'
 
-import BlueHome from '/public/assets/icon/BlueHome.svg'
+import BlueProfile from '/public/assets/icon/BlueProfile.svg'
 import BlueWork from '/public/assets/icon/BlueWork.svg'
 import BlueProject from '/public/assets/icon/BlueProject.svg'
 import BluePhone from '/public/assets/icon/BluePhone.svg'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { useState } from 'react'
 
 const NavOptions = [
   {
-    text: 'Início',
-    icon: WhiteHome,
-    selectIcon: BlueHome,
-    link: '/',
-  },
-  {
     text: 'Sobre',
     icon: WhiteProfile,
-    selectIcon: WhiteProfile,
-    link: '/sobre',
+    selectIcon: BlueProfile,
+    link: '#sobre',
   },
   {
     text: 'Experiência',
     icon: WhiteWork,
     selectIcon: BlueWork,
-    link: '/experiencia',
+    link: '#experiencia',
   },
   {
     text: 'Projetos',
     icon: WhiteProject,
     selectIcon: BlueProject,
-    link: '/projetos',
+    link: '#projetos',
   },
   {
     text: 'Contato',
     icon: WhitePhone,
     selectIcon: BluePhone,
-    link: '/contato',
+    link: '#contato',
   },
 ]
 
 export default function Header() {
-  const router = useRouter()
+  const [selected, setSelected] = useState('#sobre')
 
   return (
     <Container>
@@ -69,20 +61,18 @@ export default function Header() {
 
       <nav className="c-header__nav">
         {NavOptions.map((item, index) => {
-          const isSelect = router.asPath == item.link
+          const isSelect = selected == item.link
 
           return (
-            <Link href={item.link} passHref legacyBehavior key={index}>
-              <a
-                className={`c-header__nav__link ${isSelect && 'c-header__nav__link--selected'}`}
-              >
-                <Image
-                  src={isSelect ? item.selectIcon : item.icon}
-                  alt="icone"
-                />{' '}
-                {item.text}
-              </a>
-            </Link>
+            <a
+              onClick={() => setSelected(item.link)}
+              className={`c-header__nav__link ${isSelect && 'c-header__nav__link--selected'}`}
+              key={index}
+              href={item.link}
+            >
+              <Image src={isSelect ? item.selectIcon : item.icon} alt="icone" />{' '}
+              {item.text}
+            </a>
           )
         })}
       </nav>
@@ -95,8 +85,13 @@ export default function Header() {
 }
 
 const Container = styled.header`
-  min-width: 16.25rem;
-  max-width: 16.25rem;
+  min-width: 17.5rem;
+  max-width: 17.5rem;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  height: 500px;
+  top: 32px;
 
   .c-header__c-img {
     width: 10rem;
@@ -145,11 +140,37 @@ const Container = styled.header`
       display: flex;
       align-items: center;
       cursor: pointer;
+      transition: 0.2s;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        background: rgba(0, 102, 255, 0.04);
+        height: 100%;
+        left: 0px;
+        border-radius: 0.375rem;
+        z-index: -1;
+        width: 0%;
+        transition: 0.4s;
+      }
+
+      &:hover {
+        &::before {
+          content: '';
+          transition: 0.4s;
+          width: 100%;
+        }
+      }
     }
 
     .c-header__nav__link--selected {
-      background: rgba(0, 102, 255, 0.08);
       color: ${theme.primaryBlue};
+      transition: 0.2s;
+      &::before {
+        background: rgba(0, 102, 255, 0.08);
+        width: 100%;
+      }
     }
   }
 

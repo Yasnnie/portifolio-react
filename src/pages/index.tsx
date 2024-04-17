@@ -3,8 +3,8 @@ import PageContainer from '@/components/PageContainer'
 import HomeAbout from '@/components/HomeAbout'
 import Line from '@/components/Line'
 import HomeProjects from '@/components/HomeProjects'
-import HomeContact from '@/components/HomeContact'
-import HomeRecommendations from '@/components/HomeRecommendations'
+import Contact from '@/components/Contact'
+import ExperienceContainer from '@/components/ExperienceContainer'
 
 export default function Home() {
   return (
@@ -15,14 +15,15 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <PageContainer>
         <HomeAbout />
         <Line />
-        <HomeRecommendations />
+        <ExperienceContainer />
         <Line />
         <HomeProjects />
         <Line />
-        <HomeContact />
+        <Contact />
       </PageContainer>
     </>
   )

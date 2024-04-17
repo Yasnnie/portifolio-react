@@ -2,10 +2,10 @@ import styled from 'styled-components'
 
 export default function ExperienceContainer() {
   return (
-    <Container>
+    <Container id="experiencia">
       <h3 className="c-title">Profissional</h3>
       <div className="c-experience">
-        <p className="c-experience__time">Set/2022 - Presente</p>
+        <p className="c-experience__time">2022 - Presente</p>
         <div className="c-experience__content">
           <p className="c-experience__content__title">NADIC</p>
           <p className="c-experience__content__text">
@@ -17,7 +17,7 @@ export default function ExperienceContainer() {
         </div>
       </div>
       <div className="c-experience">
-        <p className="c-experience__time">Ago/2021 - Set/2022</p>
+        <p className="c-experience__time">2021 - 2022</p>
         <div className="c-experience__content">
           <p className="c-experience__content__title">Pechinchou</p>
           <p className="c-experience__content__text">
@@ -36,7 +36,7 @@ export default function ExperienceContainer() {
         </div>
       </div>
       <div className="c-experience">
-        <p className="c-experience__time">Mar/2020 - Dez/2021</p>
+        <p className="c-experience__time">2020 - 2021</p>
         <div className="c-experience__content">
           <p className="c-experience__content__title">
             VVC Distribuidora de Bebidas Ltda.
@@ -58,7 +58,7 @@ export default function ExperienceContainer() {
       </h3>
 
       <div className="c-experience">
-        <p className="c-experience__time">Abr/2022 - Presente</p>
+        <p className="c-experience__time">2022 - Presente</p>
         <div className="c-experience__content">
           <p className="c-experience__content__title">
             Graduação em Análise e Desenvolvimento de Sistemas
@@ -71,7 +71,7 @@ export default function ExperienceContainer() {
       </div>
 
       <div className="c-experience">
-        <p className="c-experience__time">Mar/2018 - Jan/2022</p>
+        <p className="c-experience__time">2018 - 2022</p>
         <div className="c-experience__content">
           <p className="c-experience__content__title">
             Ensino Médio Técnico Integrado em Informática
@@ -88,21 +88,23 @@ export default function ExperienceContainer() {
 
 const Container = styled.section`
   width: 100%;
+  padding: 32px 0;
 
   .c-title {
     color: #06f;
     font-family: Inter;
     text-align: center;
-    width: 160px;
+    width: 130px;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    margin-bottom: 1rem;
   }
 
   .c-experience {
     display: grid;
-    grid-template-columns: 160px 1fr;
+    grid-template-columns: 130px 1fr;
     height: calc(max-content + 20px);
     align-items: center;
     gap: 16px;
@@ -122,8 +124,8 @@ const Container = styled.section`
       font-weight: 400;
       line-height: normal;
       gap: 10px;
+      padding-bottom: 10px;
 
-      &:before,
       &:after {
         content: '';
         display: flex;
@@ -137,7 +139,7 @@ const Container = styled.section`
     }
 
     .c-experience__content {
-      padding: 24px 0;
+      padding-bottom: 48px;
 
       .c-experience__content__title {
         color: #fff;

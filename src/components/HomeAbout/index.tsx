@@ -1,5 +1,4 @@
 import { theme } from '@/styles/theme'
-import Link from 'next/link'
 import styled from 'styled-components'
 
 export default function HomeAbout() {
@@ -18,9 +17,6 @@ export default function HomeAbout() {
         experiências de usuário excepcionais que facilitam a vida das pessoas e
         proporcionam resultados excepcionais para os negócios.
       </p>
-      <Link href="/sobre" passHref legacyBehavior>
-        <a className="c-home-about__link">Ler mais</a>
-      </Link>
     </Container>
   )
 }
