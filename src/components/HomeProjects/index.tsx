@@ -3,6 +3,7 @@ import { theme } from '@/styles/theme'
 import BlueArrow from '/public/assets/icon/BlueArrow.svg'
 import Image from 'next/image'
 import LineProjectCard from '../LineProjectCard'
+import { highLightProjects } from '@/data/projects'
 
 export default function HomeProjects() {
   return (
@@ -17,9 +18,11 @@ export default function HomeProjects() {
       </div>
 
       <div className="c-home-projects__c-cards">
-        <LineProjectCard />
-        <LineProjectCard />
-        <LineProjectCard />
+        {highLightProjects.map((item, index) => (
+          <LineProjectCard key={index} item={item} />
+        ))}
+
+       
       </div>
     </Container>
   )
@@ -59,5 +62,11 @@ const Container = styled.section`
     display: flex;
     flex-direction: column;
     gap: 32px;
+
+    &:hover {
+      .card {
+        opacity: 0.5;
+      }
+    }
   }
 `

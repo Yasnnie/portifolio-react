@@ -59,7 +59,7 @@ const Container = styled.a<{ isLast?: boolean }>`
     text-align: center;
     width: 100%;
     height: 100%;
-    color: #fff;
+    color: ${theme.gray300};
     font-family: Inter;
     font-size: 14px;
     font-style: normal;
@@ -74,7 +74,7 @@ const Container = styled.a<{ isLast?: boolean }>`
       display: flex;
       position: relative;
       flex: 1;
-      background: #fff;
+      background: ${theme.gray500};
       width: 1px;
       height: 100%;
       margin: 0 auto;
@@ -84,28 +84,31 @@ const Container = styled.a<{ isLast?: boolean }>`
 
   .c-experience__content {
     padding-bottom: ${({ isLast }) => (isLast ? '0px' : '40px')};
-    color: #fff;
+   
     font-family: Inter;
     font-style: normal;
     line-height: normal;
 
     .c-experience__content__padding {
-      padding: 0px 12px 12px 12px;
+      padding: 8px 12px 12px 12px;
+      margin-top: -8px;
       border-radius: 8px;
-      transition: 0.2s;
+      transition: background 0.2s;
     }
 
     .c-experience__content__title {
       display: flex;
+      color: ${theme.white};
       gap: 8px;
       align-items: center;
       font-size: 16px;
       font-weight: 700;
       margin-bottom: 6px;
     }
-
+    
     .c-experience__content__text {
       font-size: 14px;
+      color: ${theme.gray300};
 
       font-weight: 400;
     }
@@ -115,15 +118,14 @@ const Container = styled.a<{ isLast?: boolean }>`
     cursor: pointer;
 
     .c-experience__content__padding {
-      padding: 8px 11px 12px 11px;
-      margin-top: -8px;
+     
       background: rgba(237, 236, 255, 0.06);
       border-radius: 8px;
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(4px);
       -webkit-backdrop-filter: blur(4px);
-      border: 1px solid rgba(237, 236, 255, 0.07);
-      transition: 0.2s;
+   
+      transition: background 0.2s;
 
       .c-experience__content__title {
         color: ${theme.blue300};

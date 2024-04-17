@@ -1,3 +1,10 @@
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;

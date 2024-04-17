@@ -81,7 +81,7 @@ const Container = styled.section`
     font-weight: 400;
     text-align: center;
     line-height: 20px;
-    color: ${theme.white};
+    color: ${theme.gray300};
   }
 
   .c-contact__d-flex {

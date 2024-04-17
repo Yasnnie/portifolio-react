@@ -10,12 +10,26 @@ export default function HomeAbout() {
       </h2>
 
       <p className="c-home-about__text">
-        Minha abordagem combina criatividade e tecnologia para criar soluções
-        digitais que não apenas funcionam bem, mas também se destacam
-        visualmente. Acredito que a tecnologia pode ser uma poderosa ferramenta
-        para agregar pessoas e melhorar suas vidas. Estou comprometida em criar
-        experiências de usuário excepcionais que facilitam a vida das pessoas e
-        proporcionam resultados excepcionais para os negócios.
+        Por volta de 2020, comecei a explorar HTML e CSS para criar sites para
+        servidores de RP e Javascrip para bots do Discord. Não demorou muito,
+        logo entrei no mercado de trabalho para minha primeira vaga como
+        desenvolvedora web em uma <a href="https://pechinchou.com.br/" target="_blank">startup</a> local. Lá, foquei em
+        desenvolver sistemas escaláveis e com uma boa experiência de usuário.
+      </p>
+      <p className="c-home-about__text">
+        Atualmente, faço parte do <a href="https://nadic.ifrn.edu.br/" target="_blank">NADIC</a>, um núcleo de pesquisa
+        dedicado a criar soluções tecnológicas para diversas empresas. Lá
+        trabalho em projetos voltados para <a href="https://rieh.mec.gov.br/" target="_blank">educação brasileira</a>.
+        Meu objetivo é contribuir para a sociedade através da tecnologia,
+        buscando impactar positivamente a vida das pessoas. Sempre me dediquei a
+        projetos que têm o potencial de alcançar grandes massas e fazer a
+        diferença no mundo.
+      </p>
+      <p className="c-home-about__text">
+        No meu tempo livre, gosto de jogar <span>Valorant</span> e outros jogos
+        online, ouvir música e assistir a séries e filmes. Fora do computador,
+        priorizo momentos de qualidade com minha família e amigos, como também
+        conhecer novos lugares.
       </p>
     </Container>
   )
@@ -39,11 +53,24 @@ const Container = styled.section`
   }
 
   .c-home-about__text {
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-weight: 400;
-    line-height: 1.125rem;
-    text-align: justify;
+    line-height: 1.25rem;
     margin-top: 1.75rem;
+    color: ${theme.gray300};
+
+    a,
+    span {
+      color: ${theme.white};
+      font-weight: 500;
+      cursor: pointer;
+      transition: 200ms;
+
+      &:hover{
+        color: ${theme.blue300};
+        transition: 200ms;
+      }
+    }
   }
 
   .c-home-about__link {

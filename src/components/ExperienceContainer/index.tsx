@@ -41,7 +41,7 @@ const Container = styled.section`
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
 `
 
