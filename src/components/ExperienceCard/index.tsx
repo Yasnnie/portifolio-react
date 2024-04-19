@@ -8,7 +8,8 @@ interface Props {
 
 export default function ExperienceCard({ item, isLast }: Props) {
   return (
-    <Container href={item.link} target="_blank" isLast={isLast}>
+
+    <Container href={item.link} target="_blank" isLast={isLast} className='scroll-review-item'>
       <p className="c-experience__time">{item.timer}</p>
       <div className="c-experience__content">
         <div className="c-experience__content__padding">
@@ -42,6 +43,7 @@ export default function ExperienceCard({ item, isLast }: Props) {
         </div>
       </div>
     </Container>
+
   )
 }
 

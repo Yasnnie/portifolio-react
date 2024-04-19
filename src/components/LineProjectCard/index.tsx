@@ -1,7 +1,6 @@
 import { theme } from '@/styles/theme'
 import Image, { StaticImageData } from 'next/image'
 import styled from 'styled-components'
-import Teste from '/public/assets/img/teste.png'
 
 interface Props {
   item: {
@@ -9,31 +8,37 @@ interface Props {
     subtitle: string
     description: string
     technologies: string[]
-    link:string,
-    img:StaticImageData
+    link: string
+    img: StaticImageData
   }
 }
 
 export default function LineProjectCard({ item }: Props) {
   return (
-    <Container href={item.link} target='_blank' className="card">
-      <div className="c-card">
-        <div className="c-card__c-img">
-          <Image src={item.img} alt="tumb card" fill  objectFit='cover'/>
-        </div>
+    <ScrollContainer className='scroll-review-item'> 
+      <Container
+        href={item.link}
+        target="_blank"
+        className=" card-project"
+      >
+        <div className="c-card">
+          <div className="c-card__c-img">
+            <Image src={item.img} alt="tumb card" fill objectFit="cover" />
+          </div>
 
-        <div className="c-card__content">
-          <h3 className="c-card__title">{item.title}</h3>
-          <p className="c-card__description">{item.description}</p>
+          <div className="c-card__content">
+            <h3 className="c-card__title">{item.title}</h3>
+            <p className="c-card__description">{item.description}</p>
 
-          <div className="c-card__technology">
-            {item.technologies.map((technology) => (
-              <p className="c-card__technology__option">{technology}</p>
-            ))}
+            <div className="c-card__technology">
+              {item.technologies.map((technology) => (
+                <p className="c-card__technology__option">{technology}</p>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </ScrollContainer>
   )
 }
 
@@ -83,7 +88,7 @@ const Container = styled.a`
 
     .c-card__description {
       font-size: 14px;
-      font-weight: 400; 
+      font-weight: 400;
       line-height: 20px;
       text-align: left;
       flex: 1;
@@ -112,7 +117,6 @@ const Container = styled.a`
   }
 
   &:hover {
-    background: #000;
     transform: scale(1.04);
     cursor: pointer;
     opacity: 1 !important;
@@ -149,4 +153,12 @@ const Container = styled.a`
       }
     }
   }
+`
+
+const ScrollContainer = styled.section`
+  width: 100%;
+
+  display: flex;
+  flex: 1;
+  align-items: center;
 `

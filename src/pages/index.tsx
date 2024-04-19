@@ -5,8 +5,17 @@ import Line from '@/components/Line'
 import HomeProjects from '@/components/HomeProjects'
 import Contact from '@/components/Contact'
 import ExperienceContainer from '@/components/ExperienceContainer'
+import useScrollReveal from '@/hooks/useScollReview'
 
 export default function Home() {
+  useScrollReveal('.scroll-review-item', {
+    duration: 1000,
+    delay: 150,
+    distance: '350px',
+    scale: 1,
+    easing: 'ease',
+
+  });
   return (
     <>
       <Head>

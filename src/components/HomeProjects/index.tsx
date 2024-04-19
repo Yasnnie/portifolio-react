@@ -3,7 +3,8 @@ import { theme } from '@/styles/theme'
 import BlueArrow from '/public/assets/icon/BlueArrow.svg'
 import Image from 'next/image'
 import LineProjectCard from '../LineProjectCard'
-import { highLightProjects, projects } from '@/data/projects'
+import {  projects } from '@/data/projects'
+import { useEffect  } from 'react'
 
 export default function HomeProjects() {
   return (
@@ -21,8 +22,6 @@ export default function HomeProjects() {
         {projects.map((item, index) => (
           <LineProjectCard key={index} item={item} />
         ))}
-
-       
       </div>
     </Container>
   )
@@ -64,7 +63,8 @@ const Container = styled.section`
     gap: 32px;
 
     &:hover {
-      .card {
+
+      .card-project{
         opacity: 0.5;
       }
     }
