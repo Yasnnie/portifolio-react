@@ -79,4 +79,14 @@ const Container = styled.footer`
     font-size: 12px;
     display: flex;
   }
+
+  @media (max-width: 600px) {
+    margin: 32px auto 0px auto;
+    text-align: center;
+    
+    .c-footer__copyright{
+        width: 100%;
+        justify-content: center;
+    }
+  }
 `

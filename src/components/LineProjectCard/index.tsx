@@ -98,11 +98,13 @@ const Container = styled.a`
     .c-card__technology {
       display: flex;
       gap: 10px;
-
+      flex-wrap: wrap;
+      
       .c-card__technology__option {
         display: flex;
         padding: 2px 8px;
         align-items: flex-start;
+       
         gap: 10px;
         border-radius: 100px;
         background: #06f;

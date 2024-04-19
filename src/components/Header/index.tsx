@@ -90,7 +90,6 @@ export default function Header() {
       </div>
       <h1 className="c-header__title">Yasmin Carvalho</h1>
       <p className="c-header__subtitle">Desenvolvedora Web e Mobile</p>
-  
 
       <nav className="c-header__nav">
         {NavOptions.map((item, index) => {
@@ -213,5 +212,22 @@ const Container = styled.header`
     color: ${theme.white};
     position: absolute;
     bottom: 0px;
+  }
+
+  @media (max-width: 1080px) {
+    position: relative;
+    top: unset;
+    min-width: 100%;
+    max-width: 100%;
+    height: max-content;
+    .c-header__nav {
+      flex-direction: row;
+      width: 100%;
+
+      .c-header__nav__link{
+        flex: 1;
+        justify-content: center;
+      }
+    }
   }
 `

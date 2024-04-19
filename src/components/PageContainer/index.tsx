@@ -43,4 +43,14 @@ const Container = styled.div`
       width: 100%;
     }
   }
+
+
+  @media (max-width:1080px) {
+    padding: 2.5rem 1.5rem;
+    .c-main {
+      justify-content: flex-start;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  }
 `
