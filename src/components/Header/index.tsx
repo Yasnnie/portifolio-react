@@ -4,23 +4,25 @@ import styled from 'styled-components'
 
 import ProfileImg from '/public/assets/img/profile.jpeg'
 
+import WhiteHome from '/public/assets/icon/WhiteHome.svg'
 import WhiteProfile from '/public/assets/icon/WhiteProfile.svg'
 import WhiteWork from '/public/assets/icon/WhiteWork.svg'
 import WhiteProject from '/public/assets/icon/WhiteProject.svg'
 import WhitePhone from '/public/assets/icon/WhitePhone.svg'
 
+import BlueHome from '/public/assets/icon/BlueHome.svg'
 import BlueProfile from '/public/assets/icon/BlueProfile.svg'
 import BlueWork from '/public/assets/icon/BlueWork.svg'
 import BlueProject from '/public/assets/icon/BlueProject.svg'
 import BluePhone from '/public/assets/icon/BluePhone.svg'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const NavOptions = [
   {
-    text: 'Sobre',
-    icon: WhiteProfile,
-    selectIcon: BlueProfile,
-    link: '#sobre',
+    text: 'Início',
+    icon: WhiteHome,
+    selectIcon: BlueHome,
+    link: '#',
   },
   {
     text: 'Experiência',
@@ -43,7 +45,46 @@ const NavOptions = [
 ]
 
 export default function Header() {
-  const [selected, setSelected] = useState('#sobre')
+  const [selected, setSelected] = useState('#')
+
+  useEffect(() => {
+    const sections = [
+      { id: '', offset: 0 },
+      {
+        id: 'experiencia',
+        offset: document.getElementById('experiencia')?.offsetTop || 0,
+      },
+      {
+        id: 'projetos',
+        offset: document.getElementById('projetos')?.offsetTop || 0,
+      },
+      {
+        id: 'contato',
+        offset: document.getElementById('contato')?.offsetTop || 0,
+      },
+    ]
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+
+      for (let i = 0; i < sections.length; i++) {
+        const section = sections[i]
+        const nextSection = sections[i + 1]
+
+        const nextOffset = nextSection ? nextSection.offset : Infinity
+
+        if (scrollY >= section.offset && scrollY < nextOffset) {
+          setSelected(`#${section.id}`)
+          break
+        }
+      }
+    }
+    
+    handleScroll()
+    window.addEventListener('scroll', handleScroll)
+
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <Container>
@@ -65,8 +106,9 @@ export default function Header() {
 
           return (
             <a
-              onClick={() => setSelected(item.link)}
-              className={`c-header__nav__link ${isSelect && 'c-header__nav__link--selected'}`}
+              className={`c-header__nav__link ${
+                isSelect && 'c-header__nav__link--selected'
+              }`}
               key={index}
               href={item.link}
             >

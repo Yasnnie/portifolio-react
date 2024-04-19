@@ -9,7 +9,7 @@ interface Props {
 
 export default function PageContainer({ children }: Props) {
   return (
-    <Container id="sobre">
+    <Container>
       <div className="c-main">
         <Header />
 

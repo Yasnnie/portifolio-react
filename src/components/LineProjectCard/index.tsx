@@ -1,5 +1,5 @@
 import { theme } from '@/styles/theme'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import styled from 'styled-components'
 import Teste from '/public/assets/img/teste.png'
 
@@ -9,16 +9,17 @@ interface Props {
     subtitle: string
     description: string
     technologies: string[]
-    link:string
+    link:string,
+    img:StaticImageData
   }
 }
 
 export default function LineProjectCard({ item }: Props) {
   return (
-    <Container className="card">
+    <Container href={item.link} target='_blank' className="card">
       <div className="c-card">
         <div className="c-card__c-img">
-          <Image src={Teste} alt="tumb card" fill />
+          <Image src={item.img} alt="tumb card" fill  objectFit='cover'/>
         </div>
 
         <div className="c-card__content">
@@ -36,7 +37,7 @@ export default function LineProjectCard({ item }: Props) {
   )
 }
 
-const Container = styled.section`
+const Container = styled.a`
   transition: 0.2s;
   box-sizing: border-box;
   padding: 1px;
@@ -82,9 +83,9 @@ const Container = styled.section`
 
     .c-card__description {
       font-size: 14px;
-      font-weight: 400;
+      font-weight: 400; 
       line-height: 20px;
-      text-align: justify;
+      text-align: left;
       flex: 1;
       color: ${theme.gray300};
     }

@@ -46,6 +46,7 @@ const Container = styled.section`
     letter-spacing: 0em;
     text-align: left;
     color: ${theme.white};
+    margin-bottom: 28px;
 
     .c-home-about__title__bold {
       color: ${theme.primaryBlue};
@@ -56,8 +57,12 @@ const Container = styled.section`
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.25rem;
-    margin-top: 1.75rem;
+    
     color: ${theme.gray300};
+
+    & + .c-home-about__text {
+      margin-top: 1rem;
+    }
 
     a,
     span {

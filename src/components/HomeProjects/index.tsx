@@ -3,7 +3,7 @@ import { theme } from '@/styles/theme'
 import BlueArrow from '/public/assets/icon/BlueArrow.svg'
 import Image from 'next/image'
 import LineProjectCard from '../LineProjectCard'
-import { highLightProjects } from '@/data/projects'
+import { highLightProjects, projects } from '@/data/projects'
 
 export default function HomeProjects() {
   return (
@@ -18,7 +18,7 @@ export default function HomeProjects() {
       </div>
 
       <div className="c-home-projects__c-cards">
-        {highLightProjects.map((item, index) => (
+        {projects.map((item, index) => (
           <LineProjectCard key={index} item={item} />
         ))}
 
