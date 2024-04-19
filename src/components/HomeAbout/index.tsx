@@ -1,12 +1,12 @@
 import { theme } from '@/styles/theme'
 import styled from 'styled-components'
-
+import Logo from '/public/assets/icon/Logo.svg'
+import Image from 'next/image'
 export default function HomeAbout() {
   return (
     <Container>
       <h2 className="c-home-about__title">
-        Olá, eu sou{' '}
-        <span className="c-home-about__title__bold">Yasmin Carvalho</span>
+      <Image src={Logo} alt='Logo' width={24} height={24}/>
       </h2>
 
       <p className="c-home-about__text">
@@ -44,9 +44,10 @@ const Container = styled.section`
     font-weight: 700;
     line-height: 2.5rem;
     letter-spacing: 0em;
+    margin-bottom: 6px;
     text-align: left;
     color: ${theme.white};
-    margin-bottom: 28px;
+ 
 
     .c-home-about__title__bold {
       color: ${theme.primaryBlue};
@@ -88,4 +89,6 @@ const Container = styled.section`
     display: block;
     cursor: pointer;
   }
+
+  @media (max-width:1080px) {}
 `

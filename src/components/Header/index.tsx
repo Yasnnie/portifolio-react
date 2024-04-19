@@ -90,7 +90,7 @@ export default function Header() {
       </div>
       <h1 className="c-header__title">Yasmin Carvalho</h1>
       <p className="c-header__subtitle">Desenvolvedora Web e Mobile</p>
-
+      <Contact />
       <nav className="c-header__nav">
         {NavOptions.map((item, index) => {
           const isSelect = selected == item.link
@@ -110,7 +110,7 @@ export default function Header() {
         })}
       </nav>
 
-      <Contact />
+ 
     </Container>
   )
 }
@@ -153,7 +153,7 @@ const Container = styled.header`
     display: flex;
     flex-direction: column;
     padding: 1rem 0;
-    margin: 1rem 0;
+    margin: 1.25rem 0;
     border-top: 1px solid rgba(255, 255, 255, 0.5);
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 
@@ -220,13 +220,20 @@ const Container = styled.header`
     min-width: 100%;
     max-width: 100%;
     height: max-content;
+ 
+
     .c-header__nav {
       flex-direction: row;
       width: 100%;
+      padding: 4px 0;
+      margin-bottom: 0px;
 
-      .c-header__nav__link{
+      .c-header__nav__link {
         flex: 1;
         justify-content: center;
+        gap: 6px;
+        padding: 10px 4px;
+        font-size: 14px;
       }
     }
   }

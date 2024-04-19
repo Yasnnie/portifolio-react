@@ -52,6 +52,7 @@ export default function Contact() {
 }
 
 const Container = styled.section`
+  margin-top: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,7 +64,7 @@ const Container = styled.section`
     align-items: center;
     gap: 6px;
     height: 36px;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
     position: relative;
     transition: 0.6s;
@@ -85,7 +86,7 @@ const Container = styled.section`
       .c-contact__link__text {
         transition: 0.6s;
         opacity: 1;
-        top: 32px;
+        top: 28px;
         background: linear-gradient(91.84deg, #00122d 30.95%, #001f4d 98.87%);
         padding: 4px 6px;
       }

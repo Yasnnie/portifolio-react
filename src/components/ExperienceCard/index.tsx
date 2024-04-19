@@ -153,4 +153,29 @@ const Container = styled.a<{ isLast?: boolean }>`
 
   .c-experience--no-padding {
   }
+
+  @media (max-width:600px) {
+    grid-template-columns: 1fr;
+    margin-bottom: ${({ isLast }) => (isLast ? '0px' : '40px')};
+
+
+    .c-experience__time{
+      padding: 0;
+      text-align: left;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 8px;
+
+      &::after{
+        height: 1px;
+      }
+    }
+
+    .c-experience__content{
+      padding: 0px;
+      .c-experience__content__padding {
+        padding: 0px;
+      }
+    }
+  }
 `
