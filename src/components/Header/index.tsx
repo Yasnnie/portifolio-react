@@ -16,6 +16,7 @@ import BlueWork from '/public/assets/icon/BlueWork.svg'
 import BlueProject from '/public/assets/icon/BlueProject.svg'
 import BluePhone from '/public/assets/icon/BluePhone.svg'
 import { useEffect, useState } from 'react'
+import Contact from '../Contact'
 
 const NavOptions = [
   {
@@ -36,12 +37,6 @@ const NavOptions = [
     selectIcon: BlueProject,
     link: '#projetos',
   },
-  {
-    text: 'Contato',
-    icon: WhitePhone,
-    selectIcon: BluePhone,
-    link: '#contato',
-  },
 ]
 
 export default function Header() {
@@ -57,10 +52,6 @@ export default function Header() {
       {
         id: 'projetos',
         offset: document.getElementById('projetos')?.offsetTop || 0,
-      },
-      {
-        id: 'contato',
-        offset: document.getElementById('contato')?.offsetTop || 0,
       },
     ]
 
@@ -79,7 +70,7 @@ export default function Header() {
         }
       }
     }
-    
+
     handleScroll()
     window.addEventListener('scroll', handleScroll)
 
@@ -99,6 +90,7 @@ export default function Header() {
       </div>
       <h1 className="c-header__title">Yasmin Carvalho</h1>
       <p className="c-header__subtitle">Desenvolvedora Web e Mobile</p>
+  
 
       <nav className="c-header__nav">
         {NavOptions.map((item, index) => {
@@ -119,9 +111,7 @@ export default function Header() {
         })}
       </nav>
 
-      <span className="c-header__copyright">
-        © 2024 - Yasmin Carvalho T. de Alencar
-      </span>
+      <Contact />
     </Container>
   )
 }
@@ -221,5 +211,7 @@ const Container = styled.header`
     line-height: 0.75rem;
     letter-spacing: 0em;
     color: ${theme.white};
+    position: absolute;
+    bottom: 0px;
   }
 `

@@ -6,12 +6,13 @@ import HomeProjects from '@/components/HomeProjects'
 import Contact from '@/components/Contact'
 import ExperienceContainer from '@/components/ExperienceContainer'
 import useScrollReveal from '@/hooks/useScollReview'
+import Footer from '@/components/Footer'
 
 export default function Home() {
   useScrollReveal('.scroll-review-item', {
     duration: 1000,
     delay: 150,
-    distance: '350px',
+    distance: '230px',
     scale: 1,
     easing: 'ease',
 
@@ -32,7 +33,7 @@ export default function Home() {
         <Line />
         <HomeProjects />
         <Line />
-        <Contact />
+        <Footer/>
       </PageContainer>
     </>
   )
