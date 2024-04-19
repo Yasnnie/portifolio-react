@@ -15,12 +15,8 @@ interface Props {
 
 export default function LineProjectCard({ item }: Props) {
   return (
-    <ScrollContainer className='scroll-review-item'> 
-      <Container
-        href={item.link}
-        target="_blank"
-        className=" card-project"
-      >
+    <ScrollContainer className="scroll-review-item">
+      <Container href={item.link} target="_blank" className=" card-project">
         <div className="c-card">
           <div className="c-card__c-img">
             <Image src={item.img} alt="tumb card" fill objectFit="cover" />
@@ -99,12 +95,12 @@ const Container = styled.a`
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
-      
+
       .c-card__technology__option {
         display: flex;
         padding: 2px 8px;
         align-items: flex-start;
-       
+
         gap: 10px;
         border-radius: 100px;
         background: #06f;
@@ -152,6 +148,16 @@ const Container = styled.a`
       }
       100% {
         --gradient-angle: 360deg;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .c-card {
+      grid-template-columns: 1fr;
+
+      .c-card__c-img{
+        min-height: 230px;
       }
     }
   }
