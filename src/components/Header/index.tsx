@@ -42,7 +42,7 @@ const NavOptions = [
 export default function Header() {
   const [selected, setSelected] = useState('#')
 
-  const objectSelected = NavOptions.find((item)=> item.link == selected)
+  const objectSelected = NavOptions.find((item) => item.link == selected)
 
   useEffect(() => {
     const sections = [
@@ -81,7 +81,10 @@ export default function Header() {
 
   return (
     <>
-      { objectSelected?.link != '#' && <MobileTitle>{objectSelected?.text}</MobileTitle>}
+      <MobileTitle open={objectSelected?.link != '#'}>
+        {objectSelected?.text}
+      </MobileTitle>
+
       <Container>
         <div className="c-header__c-img">
           <Image
@@ -248,25 +251,26 @@ const Container = styled.header`
   }
 `
 
-const MobileTitle = styled.div`
+const MobileTitle = styled.div<{ open: boolean }>`
+  position: fixed;
+  display: none;
+  z-index: 100;
+  width: 100%;
+  left: 0px;
+  padding: 20px 24px;
+  background: rgba(26, 26, 26, 0.8);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  text-transform: uppercase;
+  font-weight: 700;
+  color: ${theme.white};
+  letter-spacing: 1px;
+  transition: 0.5s;
 
-position: fixed;
-top: 0px;
-z-index: 100;
-width: 100%;
-left: 0px;
-padding: 20px 24px;
-background: rgba(26, 26, 26, 0.8);
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(4px);
--webkit-backdrop-filter: blur(4px);
-display: none;
-text-transform: uppercase;
-font-weight: 700;
-color: ${theme.white};
-letter-spacing: 1px;
-@media (max-width: 600px) {
-  display: flex;
-}
-
+  @media (max-width: 600px) {
+    display: flex;
+    top: ${({open})=> open ? '0px' : '-150px'};
+    transition: 0.5s;
+  }
 `
