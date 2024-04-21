@@ -43,6 +43,10 @@ const Container = styled.section`
     line-height: normal;
     margin-bottom: 2rem;
   }
+
+  @media (max-width: 600px) {
+    padding: 68px 0;
+  }
 `
 
 const dataWork = [

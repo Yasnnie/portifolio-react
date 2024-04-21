@@ -48,7 +48,7 @@ export default function Footer() {
         .
       </p>
 
-      <p>Até a próxima! 👋</p>
+      <p className='c-footer__text'>Até a próxima! 👋</p>
       <span className="c-footer__copyright">
         © 2024 - Yasmin Carvalho T. de Alencar
       </span>
@@ -58,11 +58,11 @@ export default function Footer() {
 
 const Container = styled.footer`
   margin-top: 32px;
-  max-width: 420px;
+  max-width: 480px;
   color: ${theme.gray300};
 
   .c-footer__text {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 145%;
 
     & + p {
@@ -72,6 +72,12 @@ const Container = styled.footer`
 
   .c-footer__link {
     color: ${theme.white};
+    transition: 200ms;
+    
+    &:hover{
+      color: ${theme.primaryBlue};
+      transition: 200ms;
+    }
   }
 
   .c-footer__copyright {

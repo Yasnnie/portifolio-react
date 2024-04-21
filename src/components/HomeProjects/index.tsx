@@ -12,10 +12,10 @@ export default function HomeProjects() {
       <div className="c-home-projects__d-flex">
         <h3 className="c-home-projects__title">Projetos</h3>
 
-        <a className="c-home-projects__link">
+        {/* <a className="c-home-projects__link">
           Todos os projetos
           <Image src={BlueArrow} alt="icone ir" />
-        </a>
+        </a> */}
       </div>
 
       <div className="c-home-projects__c-cards">
@@ -39,8 +39,9 @@ const Container = styled.section`
     margin-bottom: 28px;
 
     .c-home-projects__title {
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 700;
+      letter-spacing: 1px;
       line-height: 31px;
       color: ${theme.white};
     }
@@ -67,6 +68,13 @@ const Container = styled.section`
       .card-project{
         opacity: 0.5;
       }
+    }
+  }
+
+  @media (max-width:600px) {
+    padding: 48px 0;
+    .c-home-projects__title {
+      display: none;
     }
   }
 `
