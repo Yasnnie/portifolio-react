@@ -2,6 +2,8 @@ import { theme } from '@/styles/theme'
 import styled from 'styled-components'
 import Logo from '/public/assets/icon/Logo.svg'
 import Image from 'next/image'
+import cursorImage from '/public/assets/img/SageValorant.png';
+
 export default function HomeAbout() {
   return (
     <Container>
@@ -26,7 +28,7 @@ export default function HomeAbout() {
         diferença no mundo.
       </p>
       <p className="c-home-about__text">
-        No meu tempo livre, gosto de jogar <span>Valorant</span> e outros jogos
+        No meu tempo livre, gosto de jogar <b className='teste'>Valorant</b> e outros jogos
         online, ouvir música e assistir a séries e filmes. Fora do computador,
         priorizo momentos de qualidade com minha família e amigos, como também
         conhecer novos lugares.
@@ -76,6 +78,10 @@ const Container = styled.section`
         color: ${theme.blue300};
         transition: 200ms;
       }
+    }
+
+    .teste{
+      cursor: url(${cursorImage.src});
     }
   }
 

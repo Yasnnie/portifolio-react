@@ -42,6 +42,8 @@ const NavOptions = [
 export default function Header() {
   const [selected, setSelected] = useState('#')
 
+  const objectSelected = NavOptions.find((item)=> item.link == selected)
+
   useEffect(() => {
     const sections = [
       { id: '', offset: 0 },
@@ -78,40 +80,44 @@ export default function Header() {
   }, [])
 
   return (
-    <Container>
-      <div className="c-header__c-img">
-        <Image
-          src={ProfileImg}
-          alt="foto perfil Yasmin"
-          fill
-          quality={100}
-          objectFit="cover"
-        />
-      </div>
-      <h1 className="c-header__title">Yasmin Carvalho</h1>
-      <p className="c-header__subtitle">Desenvolvedora Web e Mobile</p>
-      <Contact />
-      <nav className="c-header__nav">
-        {NavOptions.map((item, index) => {
-          const isSelect = selected == item.link
+    <>
+      { objectSelected?.link != '#' && <MobileTitle>{objectSelected?.text}</MobileTitle>}
+      <Container>
+        <div className="c-header__c-img">
+          <Image
+            src={ProfileImg}
+            alt="foto perfil Yasmin"
+            fill
+            quality={100}
+            objectFit="cover"
+          />
+        </div>
+        <h1 className="c-header__title">Yasmin Carvalho</h1>
+        <p className="c-header__subtitle">Desenvolvedora Web e Mobile</p>
+        <Contact />
+        <nav className="c-header__nav">
+          {NavOptions.map((item, index) => {
+            const isSelect = selected == item.link
 
-          return (
-            <a
-              className={`c-header__nav__link ${
-                isSelect && 'c-header__nav__link--selected'
-              }`}
-              key={index}
-              href={item.link}
-            >
-              <Image src={isSelect ? item.selectIcon : item.icon} alt="icone" />{' '}
-              {item.text}
-            </a>
-          )
-        })}
-      </nav>
-
- 
-    </Container>
+            return (
+              <a
+                className={`c-header__nav__link ${
+                  isSelect && 'c-header__nav__link--selected'
+                }`}
+                key={index}
+                href={item.link}
+              >
+                <Image
+                  src={isSelect ? item.selectIcon : item.icon}
+                  alt="icone"
+                />{' '}
+                {item.text}
+              </a>
+            )
+          })}
+        </nav>
+      </Container>
+    </>
   )
 }
 
@@ -220,7 +226,6 @@ const Container = styled.header`
     min-width: 100%;
     max-width: 100%;
     height: max-content;
- 
 
     .c-header__nav {
       flex-direction: row;
@@ -234,7 +239,34 @@ const Container = styled.header`
         gap: 6px;
         padding: 10px 4px;
         font-size: 14px;
+
+        &::before {
+          z-index: 1;
+        }
       }
     }
   }
+`
+
+const MobileTitle = styled.div`
+
+position: fixed;
+top: 0px;
+z-index: 100;
+width: 100%;
+left: 0px;
+padding: 20px 24px;
+background: rgba(26, 26, 26, 0.8);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(4px);
+-webkit-backdrop-filter: blur(4px);
+display: none;
+text-transform: uppercase;
+font-weight: 700;
+color: ${theme.white};
+letter-spacing: 1px;
+@media (max-width: 600px) {
+  display: flex;
+}
+
 `

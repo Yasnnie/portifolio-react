@@ -13,7 +13,7 @@ export const projects = [
     subtitle: 'UFAL/MEC',
     description:
       "Uma ferramenta de análise e monitoramento desenvolvida para acompanhar a implementação da Rede de Inovação para Educação Híbrida (RIEH) em todo o país. Permite coletar e analisar dados e estatísticas para avaliar o progresso da rede.",
-    technologies: ['Next.js', 'Styled-Components', 'Microfrontend'],
+    technologies: ['Next.js', 'Styled-Components','Docker', 'Microfrontend'],
     link:'https://rieh.mec.gov.br/observatorio',
     img: ObservatorioImg
   },
@@ -22,7 +22,7 @@ export const projects = [
     subtitle: 'UFAL/MEC',
     description:
       "O Repositório da Rede de Inovação para Educação Híbrida é um sistema que disponibiliza uma variedade de Recursos Educacionais Digitais (REDs), incluindo vídeos, animações, imagens, áudios, textos e planos de aula para enriquecer a oferta de Educação Híbrida.",
-    technologies: ['Next.js', 'Styled-Components', 'Microfrontend'],
+    technologies: ['Next.js', 'Styled-Components','Docker', 'Microfrontend'  ],
     link:'https://rieh.mec.gov.br/repositorio',
     img: RepositorioImg
   },
@@ -43,8 +43,7 @@ export const projects = [
       technologies: [
         'Wagtail',
         'Python',
-        'HTML',
-        'CSS',
+        'HTML/CSS',
         'JavaScript',
         'Postgrees',
       ],
@@ -77,9 +76,9 @@ export const projects = [
     technologies: [
       'Django',
       'Python',
-      'HTML',
-      'CSS',
+      'HTML/CSS',
       'JavaScript',
+      'Docker',
       'Postgrees',
     ],
     link:'https://pei.nadic.ifrn.edu.br/',
@@ -102,8 +101,7 @@ export const projects = [
     technologies: [
       'Wagtail',
       'Python',
-      'HTML',
-      'CSS',
+      'HTML/CSS',
       'JavaScript',
       'Postgrees',
     ],
