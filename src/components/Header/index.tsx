@@ -148,7 +148,7 @@ const Container = styled.header`
     font-weight: 700;
     line-height: 2rem;
     text-align: center;
-    color: ${theme.primaryBlue};
+    color: ${({ theme }) => theme.primary};
   }
 
   .c-header__subtitle {
@@ -156,6 +156,7 @@ const Container = styled.header`
     line-height: 1rem;
     text-align: center;
     margin-top: 0.25rem;
+    color: ${({ theme }) => theme.navLinkColor};
   }
 
   .c-header__nav {
@@ -163,8 +164,9 @@ const Container = styled.header`
     flex-direction: column;
     padding: 1rem 0;
     margin: 1.25rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-color: ${({ theme }) => theme.headerBoderColor};
 
     .c-header__nav__link {
       font-size: 1rem;
@@ -176,7 +178,7 @@ const Container = styled.header`
       padding: 0.625rem 0.5rem;
       font-weight: 500;
       gap: 0.625rem;
-      color: ${theme.white};
+      color: ${({ theme }) => theme.navLinkColor};
       display: flex;
       align-items: center;
       cursor: pointer;
@@ -258,19 +260,19 @@ const MobileTitle = styled.div<{ open: boolean }>`
   width: 100%;
   left: 0px;
   padding: 20px 24px;
-  background: rgba(26, 26, 26, 0.8);
+  background: ${({ theme }) => theme.mobileHeaderBg};
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   text-transform: uppercase;
   font-weight: 700;
-  color: ${theme.white};
+  color: ${({ theme }) => theme.mobileHeaderColor};
   letter-spacing: 1px;
   transition: 0.5s;
 
   @media (max-width: 600px) {
     display: flex;
-    top: ${({open})=> open ? '0px' : '-150px'};
+    top: ${({ open }) => (open ? '0px' : '-150px')};
     transition: 0.5s;
   }
 `

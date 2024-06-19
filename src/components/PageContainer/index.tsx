@@ -24,8 +24,8 @@ const Container = styled.div`
   min-height: 100vh;
   background: radial-gradient(
     81.94% 128.27% at 50% -28.27%,
-    ${theme.gray800} 0%,
-    ${theme.black500} 100%
+    ${({ theme }) => theme.bg000} 0%,
+    ${({ theme }) => theme.bg100} 100%
   );
   display: flex;
   justify-content: center;
@@ -44,8 +44,7 @@ const Container = styled.div`
     }
   }
 
-
-  @media (max-width:1080px) {
+  @media (max-width: 1080px) {
     padding: 2.5rem 1.5rem;
     .c-main {
       justify-content: flex-start;
