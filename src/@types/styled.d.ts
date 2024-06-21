@@ -16,5 +16,19 @@ declare module 'styled-components' {
     aboutMeHighlightTextColor: string
 
     lineColor: string
+
+    timeExpirienceColor: string
+    timeExpirienceLine: string
+    titleExpirienceColor: string
+    textExpirienceColor: string
+
+    projectCardBg: string
+    projectTitleColor: string
+    projectTextColor: string
+    projectTecnologyColor: string
+    projectBorderBg: string
+
+    footerLinkColor: string
+    footerTextColor: string
   }
 }

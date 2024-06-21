@@ -33,7 +33,7 @@ const Container = styled.section`
   padding: 32px 0;
 
   .c-title {
-    color: #06f;
+    color: ${({ theme }) => theme.primary};
     font-family: Inter;
     text-align: center;
     width: 116px;

@@ -8,8 +8,12 @@ interface Props {
 
 export default function ExperienceCard({ item, isLast }: Props) {
   return (
-
-    <Container href={item.link} target="_blank" isLast={isLast} className='scroll-review-item'>
+    <Container
+      href={item.link}
+      target="_blank"
+      isLast={isLast}
+      className="scroll-review-item"
+    >
       <p className="c-experience__time">{item.timer}</p>
       <div className="c-experience__content">
         <div className="c-experience__content__padding">
@@ -43,7 +47,6 @@ export default function ExperienceCard({ item, isLast }: Props) {
         </div>
       </div>
     </Container>
-
   )
 }
 
@@ -61,7 +64,7 @@ const Container = styled.a<{ isLast?: boolean }>`
     text-align: center;
     width: 100%;
     height: 100%;
-    color: ${theme.gray300};
+    color: ${({ theme }) => theme.timeExpirienceColor};
     font-family: Inter;
     font-size: 14px;
     font-style: normal;
@@ -76,7 +79,7 @@ const Container = styled.a<{ isLast?: boolean }>`
       display: flex;
       position: relative;
       flex: 1;
-      background: ${theme.gray500};
+      background: ${({ theme }) => theme.timeExpirienceLine};
       width: 1px;
       height: 100%;
       margin: 0 auto;
@@ -86,7 +89,7 @@ const Container = styled.a<{ isLast?: boolean }>`
 
   .c-experience__content {
     padding-bottom: ${({ isLast }) => (isLast ? '0px' : '40px')};
-   
+
     font-family: Inter;
     font-style: normal;
     line-height: normal;
@@ -100,17 +103,22 @@ const Container = styled.a<{ isLast?: boolean }>`
 
     .c-experience__content__title {
       display: flex;
-      color: ${theme.white};
+      color: ${({ theme }) => theme.titleExpirienceColor};
       gap: 8px;
       align-items: center;
       font-size: 16px;
       font-weight: 700;
       margin-bottom: 6px;
+
+      .c-experience__content__icon {
+        fill: ${({ theme }) => theme.titleExpirienceColor};
+        transition: 0.2s;
+      }
     }
-    
+
     .c-experience__content__text {
       font-size: 14px;
-      color: ${theme.gray300};
+      color: ${({ theme }) => theme.textExpirienceColor};
 
       font-weight: 400;
     }
@@ -120,32 +128,31 @@ const Container = styled.a<{ isLast?: boolean }>`
     cursor: pointer;
 
     .c-experience__content__padding {
-     
       background: rgba(237, 236, 255, 0.06);
       border-radius: 8px;
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(4px);
       -webkit-backdrop-filter: blur(4px);
-   
+
       transition: background 0.2s;
 
       .c-experience__content__title {
-        color: ${theme.blue300};
+        color: ${({ theme }) => theme.primary};
         transition: 0.2s;
 
         .c-experience__content__icon {
-          fill: ${theme.blue300};
+          fill: ${({ theme }) => theme.primary};
           transition: 0.2s;
         }
       }
     }
 
     .c-experience__time {
-      color: ${theme.blue300};
+      color: ${({ theme }) => theme.primary};
       transition: 0.2s;
 
       &::after {
-        background: ${theme.blue300};
+        background: ${({ theme }) => theme.primary};
         transition: 0.2s;
       }
     }
@@ -154,24 +161,23 @@ const Container = styled.a<{ isLast?: boolean }>`
   .c-experience--no-padding {
   }
 
-  @media (max-width:600px) {
+  @media (max-width: 600px) {
     grid-template-columns: 1fr;
     margin-bottom: ${({ isLast }) => (isLast ? '0px' : '40px')};
 
-
-    .c-experience__time{
+    .c-experience__time {
       padding: 0;
       text-align: left;
       flex-direction: row;
       align-items: center;
       margin-bottom: 8px;
 
-      &::after{
+      &::after {
         height: 1px;
       }
     }
 
-    .c-experience__content{
+    .c-experience__content {
       padding: 0px;
       .c-experience__content__padding {
         padding: 0px;
