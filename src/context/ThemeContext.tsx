@@ -1,12 +1,26 @@
-import { darkTheme, lightTheme } from '@/styles/theme'
-import { ReactNode, useState } from 'react'
+import React, { createContext, ReactNode, useContext, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
+import { darkTheme, lightTheme } from '@/styles/theme'
 
-interface Props {
+interface ThemeContextProps {
+  toggleTheme: () => void
+}
+
+const ThemeContext = createContext<ThemeContextProps | undefined>(undefined)
+
+interface ThemeProviderProps {
   children: ReactNode
 }
 
-export function ThemeContextProvider({ children }: Props) {
+export const useTheme = () => {
+  const context = useContext(ThemeContext)
+  if (!context) {
+    throw new Error('useTheme must be used within a ThemeContextProvider')
+  }
+  return context
+}
+
+export function ThemeContextProvider({ children }: ThemeProviderProps) {
   const [theme, setTheme] = useState(darkTheme)
 
   const toggleTheme = () => {
@@ -14,9 +28,8 @@ export function ThemeContextProvider({ children }: Props) {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <button onClick={toggleTheme}>mudar tema</button>
-      {children}
-    </ThemeProvider>
+    <ThemeContext.Provider value={{ toggleTheme }}>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </ThemeContext.Provider>
   )
 }

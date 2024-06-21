@@ -15,10 +15,11 @@ export const theme = {
 export const lightTheme: DefaultTheme = {
   bg000: '#F6F6F6',
   bg100: '#ECECEC',
-  primary: '#06f',
+  primary: '#FF8A00',
 
   headerBoderColor: 'rgba(0, 0, 0, 0.15)',
   navLinkColor: '#727272',
+  navLinkBgHover: 'rgba(255, 138, 0, 0.1)',
 
   mobileHeaderBg: 'rgba(241, 241, 241, 0.45)',
   mobileHeaderColor: '#727272',
@@ -38,19 +39,20 @@ export const lightTheme: DefaultTheme = {
   projectTextColor: '#727272',
   projectTecnologyColor: '#fff',
   projectBorderBg:
-    'conic-gradient( from var(--gradient-angle), #06f, #4A92FF, #87B7FF, #CEE1FF, #06f );',
+    'conic-gradient( from var(--gradient-angle), #FF8A00, #FFAD4C, #FFCB8D, #FFE6C9, #FF8A00 )',
 
   footerLinkColor: '#4B4B4B',
   footerTextColor: '#727272',
 }
 
 export const darkTheme: DefaultTheme = {
-  bg000: '#1A1F26',
+  bg000: '#171615',
   bg100: '#101010',
-  primary: '#06f',
+  primary: '#FF8A00',
 
   headerBoderColor: 'rgba(255, 255, 255, 0.5)',
   navLinkColor: '#fff',
+  navLinkBgHover: 'rgba(255, 138, 0, 0.04)',
 
   mobileHeaderBg: 'rgba(26, 26, 26, 0.8)',
   mobileHeaderColor: '#fff',
@@ -67,9 +69,9 @@ export const darkTheme: DefaultTheme = {
   projectCardBg: '#111112',
   projectTitleColor: '#fff',
   projectTextColor: '#bfbfbf',
-  projectTecnologyColor: '#001f4d',
+  projectTecnologyColor: '#000',
   projectBorderBg:
-    'conic-gradient( from var(--gradient-angle), #06f, #003d99, #001f4d, #00122e, #06f );',
+    'conic-gradient( from var(--gradient-angle), #FF8A00, #C46A00, #864800, #442500, #FF8A00 )',
 
   footerLinkColor: '#fff',
   footerTextColor: '#bfbfbf',

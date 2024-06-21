@@ -4,37 +4,29 @@ import styled from 'styled-components'
 
 import ProfileImg from '/public/assets/img/profile.jpeg'
 
-import WhiteHome from '/public/assets/icon/WhiteHome.svg'
-import WhiteProfile from '/public/assets/icon/WhiteProfile.svg'
-import WhiteWork from '/public/assets/icon/WhiteWork.svg'
-import WhiteProject from '/public/assets/icon/WhiteProject.svg'
-import WhitePhone from '/public/assets/icon/WhitePhone.svg'
-
-import BlueHome from '/public/assets/icon/BlueHome.svg'
-import BlueProfile from '/public/assets/icon/BlueProfile.svg'
-import BlueWork from '/public/assets/icon/BlueWork.svg'
-import BlueProject from '/public/assets/icon/BlueProject.svg'
-import BluePhone from '/public/assets/icon/BluePhone.svg'
 import { useEffect, useState } from 'react'
 import Contact from '../Contact'
+import { Home, Codepen, Briefcase } from 'react-feather'
+
+const iconSize = 20
 
 const NavOptions = [
   {
     text: 'Início',
-    icon: WhiteHome,
-    selectIcon: BlueHome,
+    icon: <Home width={iconSize} height={iconSize} />,
+
     link: '#',
   },
   {
     text: 'Experiência',
-    icon: WhiteWork,
-    selectIcon: BlueWork,
+    icon: <Briefcase width={iconSize} height={iconSize} />,
+
     link: '#experiencia',
   },
   {
     text: 'Projetos',
-    icon: WhiteProject,
-    selectIcon: BlueProject,
+    icon: <Codepen width={iconSize} height={iconSize} />,
+
     link: '#projetos',
   },
 ]
@@ -110,10 +102,7 @@ export default function Header() {
                 key={index}
                 href={item.link}
               >
-                <Image
-                  src={isSelect ? item.selectIcon : item.icon}
-                  alt="icone"
-                />{' '}
+                {item.icon}
                 {item.text}
               </a>
             )
@@ -188,7 +177,7 @@ const Container = styled.header`
       &::before {
         content: '';
         position: absolute;
-        background: rgba(0, 102, 255, 0.04);
+        background: ${({ theme }) => theme.navLinkBgHover};
         height: 100%;
         left: 0px;
         border-radius: 0.375rem;
@@ -207,22 +196,13 @@ const Container = styled.header`
     }
 
     .c-header__nav__link--selected {
-      color: ${theme.primaryBlue};
+      color: ${({ theme }) => theme.primary};
       transition: 0.2s;
       &::before {
-        background: rgba(0, 102, 255, 0.08);
+        background: ${({ theme }) => theme.navLinkBgHover};
         width: 100%;
       }
     }
-  }
-
-  .c-header__copyright {
-    font-size: 0.75rem;
-    line-height: 0.75rem;
-    letter-spacing: 0em;
-    color: ${theme.white};
-    position: absolute;
-    bottom: 0px;
   }
 
   @media (max-width: 1080px) {

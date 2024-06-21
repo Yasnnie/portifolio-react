@@ -67,7 +67,7 @@ const Container = styled.section`
       transition: 200ms;
 
       &:hover {
-        color: ${theme.blue300};
+        color: ${({ theme }) => theme.primary};
         transition: 200ms;
       }
     }

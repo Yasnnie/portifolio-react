@@ -8,6 +8,7 @@ declare module 'styled-components' {
 
     headerBoderColor: string
     navLinkColor: string
+    navLinkBgHover: string
 
     mobileHeaderBg: string
     mobileHeaderColor: string
