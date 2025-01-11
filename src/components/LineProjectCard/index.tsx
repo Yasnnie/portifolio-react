@@ -9,7 +9,7 @@ interface Props {
     description: string
     technologies: string[]
     link: string
-    img: StaticImageData
+    img: StaticImageData[]
   }
 }
 
@@ -19,7 +19,7 @@ export default function LineProjectCard({ item }: Props) {
       <Container href={item.link} target="_blank" className=" card-project">
         <div className="c-card">
           <div className="c-card__c-img">
-            <Image src={item.img} alt="tumb card" fill objectFit="cover" />
+            <Image src={item.img[0]} alt="tumb card" fill objectFit="cover" />
           </div>
 
           <div className="c-card__content">
@@ -55,7 +55,7 @@ const Container = styled.a`
     gap: 1rem;
     grid-template-columns: 220px 1fr;
     transition: 0.2s;
-    background: #111112;
+    background: ${({ theme }) => theme.projectCardBg};
 
     z-index: 1;
     .c-card__c-img {
@@ -78,8 +78,7 @@ const Container = styled.a`
       font-size: 20px;
       font-weight: 700;
       line-height: 24px;
-      /* color: #0067ff; */
-      color: #fff;
+      color: ${({ theme }) => theme.projectTitleColor};
     }
 
     .c-card__description {
@@ -88,7 +87,7 @@ const Container = styled.a`
       line-height: 20px;
       text-align: left;
       flex: 1;
-      color: ${theme.gray300};
+      color: ${({ theme }) => theme.projectTextColor};
     }
 
     .c-card__technology {
@@ -103,8 +102,8 @@ const Container = styled.a`
 
         gap: 10px;
         border-radius: 100px;
-        background: #06f;
-        color: #001f4d;
+        background: ${({ theme }) => theme.primary};
+        color: ${({ theme }) => theme.projectTecnologyColor};
         font-family: Inter;
         font-size: 13px;
         font-style: normal;
@@ -118,6 +117,7 @@ const Container = styled.a`
     transform: scale(1.04);
     cursor: pointer;
     opacity: 1 !important;
+    filter: blur(0) !important;
     transition: 0.2s;
 
     &::before,
@@ -126,14 +126,7 @@ const Container = styled.a`
       position: absolute;
       inset: -0.2px;
       z-index: -1;
-      background: conic-gradient(
-        from var(--gradient-angle),
-        #06f,
-        #003d99,
-        #001f4d,
-        #00122e,
-        #06f
-      );
+      background: ${({ theme }) => theme.projectBorderBg};
       border-radius: inherit;
       animation: rotation 6s linear infinite;
     }
@@ -156,7 +149,7 @@ const Container = styled.a`
     .c-card {
       grid-template-columns: 1fr;
 
-      .c-card__c-img{
+      .c-card__c-img {
         min-height: 230px;
       }
     }

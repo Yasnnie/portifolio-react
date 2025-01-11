@@ -7,6 +7,6 @@ export default function Line() {
 const Container = styled.div`
   flex: 1;
   height: 1px;
-  background: rgba(255, 255, 255, 0.7);
+  background: ${({ theme }) => theme.lineColor};
   width: 100%;
 `

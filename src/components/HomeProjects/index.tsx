@@ -3,8 +3,8 @@ import { theme } from '@/styles/theme'
 import BlueArrow from '/public/assets/icon/BlueArrow.svg'
 import Image from 'next/image'
 import LineProjectCard from '../LineProjectCard'
-import {  projects } from '@/data/projects'
-import { useEffect  } from 'react'
+import { projects } from '@/data/projects'
+import { useEffect } from 'react'
 
 export default function HomeProjects() {
   return (
@@ -39,11 +39,11 @@ const Container = styled.section`
     margin-bottom: 28px;
 
     .c-home-projects__title {
-      font-size: 28px;
+      font-size: 24px;
       font-weight: 700;
       letter-spacing: 1px;
-      line-height: 31px;
-      color: ${theme.white};
+      line-height: 24px;
+      color: ${({ theme }) => theme.primary};
     }
 
     .c-home-projects__link {
@@ -64,14 +64,14 @@ const Container = styled.section`
     gap: 32px;
 
     &:hover {
-
-      .card-project{
-        opacity: 0.5;
+      .card-project {
+        opacity: 0.35;
+        filter: blur(1.5px);
       }
     }
   }
 
-  @media (max-width:600px) {
+  @media (max-width: 600px) {
     padding: 48px 0;
     .c-home-projects__title {
       display: none;

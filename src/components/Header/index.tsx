@@ -4,37 +4,30 @@ import styled from 'styled-components'
 
 import ProfileImg from '/public/assets/img/profile.jpeg'
 
-import WhiteHome from '/public/assets/icon/WhiteHome.svg'
-import WhiteProfile from '/public/assets/icon/WhiteProfile.svg'
-import WhiteWork from '/public/assets/icon/WhiteWork.svg'
-import WhiteProject from '/public/assets/icon/WhiteProject.svg'
-import WhitePhone from '/public/assets/icon/WhitePhone.svg'
-
-import BlueHome from '/public/assets/icon/BlueHome.svg'
-import BlueProfile from '/public/assets/icon/BlueProfile.svg'
-import BlueWork from '/public/assets/icon/BlueWork.svg'
-import BlueProject from '/public/assets/icon/BlueProject.svg'
-import BluePhone from '/public/assets/icon/BluePhone.svg'
 import { useEffect, useState } from 'react'
 import Contact from '../Contact'
+import { Home, Codepen, Briefcase } from 'react-feather'
+import { ThemaModeButton } from '../ThemaModeButton'
+
+const iconSize = 20
 
 const NavOptions = [
   {
     text: 'Início',
-    icon: WhiteHome,
-    selectIcon: BlueHome,
+    icon: <Home width={iconSize} height={iconSize} />,
+
     link: '#',
   },
   {
     text: 'Experiência',
-    icon: WhiteWork,
-    selectIcon: BlueWork,
+    icon: <Briefcase width={iconSize} height={iconSize} />,
+
     link: '#experiencia',
   },
   {
     text: 'Projetos',
-    icon: WhiteProject,
-    selectIcon: BlueProject,
+    icon: <Codepen width={iconSize} height={iconSize} />,
+
     link: '#projetos',
   },
 ]
@@ -110,15 +103,13 @@ export default function Header() {
                 key={index}
                 href={item.link}
               >
-                <Image
-                  src={isSelect ? item.selectIcon : item.icon}
-                  alt="icone"
-                />{' '}
+                {item.icon}
                 {item.text}
               </a>
             )
           })}
         </nav>
+        {/* <ThemaModeButton /> */}
       </Container>
     </>
   )
@@ -148,7 +139,7 @@ const Container = styled.header`
     font-weight: 700;
     line-height: 2rem;
     text-align: center;
-    color: ${theme.primaryBlue};
+    color: ${({ theme }) => theme.primary};
   }
 
   .c-header__subtitle {
@@ -156,6 +147,7 @@ const Container = styled.header`
     line-height: 1rem;
     text-align: center;
     margin-top: 0.25rem;
+    color: ${({ theme }) => theme.navLinkColor};
   }
 
   .c-header__nav {
@@ -163,8 +155,9 @@ const Container = styled.header`
     flex-direction: column;
     padding: 1rem 0;
     margin: 1.25rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-color: ${({ theme }) => theme.headerBoderColor};
 
     .c-header__nav__link {
       font-size: 1rem;
@@ -176,7 +169,7 @@ const Container = styled.header`
       padding: 0.625rem 0.5rem;
       font-weight: 500;
       gap: 0.625rem;
-      color: ${theme.white};
+      color: ${({ theme }) => theme.navLinkColor};
       display: flex;
       align-items: center;
       cursor: pointer;
@@ -186,7 +179,7 @@ const Container = styled.header`
       &::before {
         content: '';
         position: absolute;
-        background: rgba(0, 102, 255, 0.04);
+        background: ${({ theme }) => theme.navLinkBgHover};
         height: 100%;
         left: 0px;
         border-radius: 0.375rem;
@@ -205,22 +198,13 @@ const Container = styled.header`
     }
 
     .c-header__nav__link--selected {
-      color: ${theme.primaryBlue};
+      color: ${({ theme }) => theme.primary};
       transition: 0.2s;
       &::before {
-        background: rgba(0, 102, 255, 0.08);
+        background: ${({ theme }) => theme.navLinkBgHover};
         width: 100%;
       }
     }
-  }
-
-  .c-header__copyright {
-    font-size: 0.75rem;
-    line-height: 0.75rem;
-    letter-spacing: 0em;
-    color: ${theme.white};
-    position: absolute;
-    bottom: 0px;
   }
 
   @media (max-width: 1080px) {
@@ -258,19 +242,19 @@ const MobileTitle = styled.div<{ open: boolean }>`
   width: 100%;
   left: 0px;
   padding: 20px 24px;
-  background: rgba(26, 26, 26, 0.8);
+  background: ${({ theme }) => theme.mobileHeaderBg};
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   text-transform: uppercase;
   font-weight: 700;
-  color: ${theme.white};
+  color: ${({ theme }) => theme.mobileHeaderColor};
   letter-spacing: 1px;
   transition: 0.5s;
 
   @media (max-width: 600px) {
     display: flex;
-    top: ${({open})=> open ? '0px' : '-150px'};
+    top: ${({ open }) => (open ? '0px' : '-150px')};
     transition: 0.5s;
   }
 `
