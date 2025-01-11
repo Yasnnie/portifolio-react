@@ -7,6 +7,7 @@ import ProfileImg from '/public/assets/img/profile.jpeg'
 import { useEffect, useState } from 'react'
 import Contact from '../Contact'
 import { Home, Codepen, Briefcase } from 'react-feather'
+import { ThemaModeButton } from '../ThemaModeButton'
 
 const iconSize = 20
 
@@ -108,6 +109,7 @@ export default function Header() {
             )
           })}
         </nav>
+        {/* <ThemaModeButton /> */}
       </Container>
     </>
   )

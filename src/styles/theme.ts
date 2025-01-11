@@ -43,6 +43,8 @@ export const lightTheme: DefaultTheme = {
 
   footerLinkColor: '#4B4B4B',
   footerTextColor: '#727272',
+  checkbox: '#c4c4c4',
+  checkboxIndicator: '#FF8A00',
 }
 
 export const darkTheme: DefaultTheme = {
@@ -75,4 +77,7 @@ export const darkTheme: DefaultTheme = {
 
   footerLinkColor: '#fff',
   footerTextColor: '#bfbfbf',
+
+  checkbox: '#FF8A00',
+  checkboxIndicator: '#101010',
 }

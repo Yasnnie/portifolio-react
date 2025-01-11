@@ -1,10 +1,16 @@
 import styled from 'styled-components'
 import ExperienceCard from '../ExperienceCard'
-
+import { Download } from 'react-feather'
 export default function ExperienceContainer() {
   return (
     <Container id="experiencia">
-      <h3 className="c-title">Profissional</h3>
+      <div className="row">
+        <h3 className="c-title">Profissional</h3>
+        <a href="/CV - Yasmin Carvalho.pdf" download>
+          <Download size={16} />
+          Download CV
+        </a>
+      </div>
 
       {dataWork.map((item, index) => (
         <ExperienceCard
@@ -32,6 +38,30 @@ const Container = styled.section`
   width: 100%;
   padding: 32px 0;
 
+  .row {
+    margin-bottom: 2rem;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    a {
+      color: ${({ theme }) => theme.timeExpirienceColor};
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: 0.2s;
+
+      &:hover {
+        transition: 0.2s;
+        color: ${({ theme }) => theme.primary};
+      }
+    }
+  }
+
   .c-title {
     color: ${({ theme }) => theme.primary};
     font-family: Inter;
@@ -41,7 +71,6 @@ const Container = styled.section`
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    margin-bottom: 2rem;
   }
 
   @media (max-width: 600px) {

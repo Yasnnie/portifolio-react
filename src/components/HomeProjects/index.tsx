@@ -65,7 +65,8 @@ const Container = styled.section`
 
     &:hover {
       .card-project {
-        opacity: 0.5;
+        opacity: 0.35;
+        filter: blur(1.5px);
       }
     }
   }

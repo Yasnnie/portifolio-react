@@ -31,5 +31,8 @@ declare module 'styled-components' {
 
     footerLinkColor: string
     footerTextColor: string
+
+    checkbox: string
+    checkboxIndicator: string
   }
 }

@@ -9,7 +9,7 @@ interface Props {
     description: string
     technologies: string[]
     link: string
-    img: StaticImageData
+    img: StaticImageData[]
   }
 }
 
@@ -19,7 +19,7 @@ export default function LineProjectCard({ item }: Props) {
       <Container href={item.link} target="_blank" className=" card-project">
         <div className="c-card">
           <div className="c-card__c-img">
-            <Image src={item.img} alt="tumb card" fill objectFit="cover" />
+            <Image src={item.img[0]} alt="tumb card" fill objectFit="cover" />
           </div>
 
           <div className="c-card__content">
@@ -117,6 +117,7 @@ const Container = styled.a`
     transform: scale(1.04);
     cursor: pointer;
     opacity: 1 !important;
+    filter: blur(0) !important;
     transition: 0.2s;
 
     &::before,

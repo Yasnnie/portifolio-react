@@ -33,7 +33,7 @@ const Container = styled.div`
 
   .c-main {
     width: 100%;
-    max-width: 68.75rem;
+    max-width: 72rem;
     display: flex;
     gap: 3.5rem;
 
