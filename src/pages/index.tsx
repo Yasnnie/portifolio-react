@@ -21,18 +21,38 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Yasmin Carvalho</title>
-        <meta name="description" content="Como desenvolvedora apaixonada, meu foco está em criar experiências digitais excepcionais que inspiram e cativam os usuários. Com habilidades sólidas em tecnologias líderes do setor, como Next.js, React, React Native, Vue.js, Python e Django, estou sempre na vanguarda da inovação. Desde a criação de websites dinâmicos e responsivos até o desenvolvimento de aplicativos móveis intuitivos, cada projeto é uma oportunidade de aplicar meu conhecimento técnico e minha criatividade. Com uma abordagem centrada no usuário e um compromisso com a qualidade, estou pronta para transformar suas ideias em realidade digital de primeira classe." />
+        <title>Yasmin Carvalho | Desenvolvedora Frontend & Mobile</title>
+        <meta name="description" content="Desenvolvedora frontend e mobile especializada em React, Next.js e aplicações modernas. Crio experiências digitais com foco em performance, usabilidade e inovação." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/assets/icon/LogoBackground.svg" />
-        <meta name="keywords" content="developer, frontend, mobile, website, portifolio, next, react, react-native"/>
-        <meta name="author" content="Yasmin Carvalho"/>
-        <meta name="robots" content="index"/>
-        <meta property="og:title" content="Yasmin Carvalho"/>
+        <meta name="keywords" content="Yasmin Carvalho, desenvolvedora frontend, desenvolvedora mobile, React, Next.js, portfolio, desenvolvedora web, React Native, Vue.js, Django" />
+        <meta name="author" content="Yasmin Carvalho" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Yasmin Carvalho | Desenvolvedora Frontend & Mobile" />
         <meta property="og:image" content="/assets/icon/LogoBackground.svg" />
-        <meta property="og:description" content="Como desenvolvedora apaixonada, meu foco está em criar experiências digitais excepcionais que inspiram e cativam os usuários. Com habilidades sólidas em tecnologias líderes do setor, como Next.js, React, React Native, Vue.js, Python e Django, estou sempre na vanguarda da inovação. Desde a criação de websites dinâmicos e responsivos até o desenvolvimento de aplicativos móveis intuitivos, cada projeto é uma oportunidade de aplicar meu conhecimento técnico e minha criatividade. Com uma abordagem centrada no usuário e um compromisso com a qualidade, estou pronta para transformar suas ideias em realidade digital de primeira classe."/>
-        <meta name="theme-color" content="#1A1F26"/>
+        <meta property="og:description" content="Portfólio de Yasmin Carvalho — desenvolvedora frontend e mobile especializada em tecnologias modernas como React, Next.js e Django." />
+        <meta name="theme-color" content="#1A1F26" />
+        <link rel="icon" href="/assets/icon/LogoBackground.svg" />
+
+        <script type="application/ld+json">
+          {`
+              {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Yasmin Carvalho",
+                "jobTitle": "Desenvolvedora Frontend e Mobile",
+                "url": "https://www.yasc.com.br",
+                "sameAs": [
+                  "https://github.com/Yasnnie",
+                  "https://www.linkedin.com/in/carvalho-yas/"
+                ],
+                "image": "https://www.yasc.com.br/assets/icon/LogoBackground.svg",
+                "description": "Portfólio de Yasmin Carvalho — desenvolvedora frontend e mobile especializada em React, Next.js, Vue.js e Django. Criação de interfaces modernas, responsivas e de alta performance."
+              }
+              `}
+        </script>
+
       </Head>
+
 
       <PageContainer>
         <HomeAbout />
@@ -41,7 +61,7 @@ export default function Home() {
         <Line />
         <HomeProjects />
         <Line />
-        <Footer/>
+        <Footer />
       </PageContainer>
     </>
   )
