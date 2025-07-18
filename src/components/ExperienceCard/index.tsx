@@ -2,7 +2,7 @@ import { theme } from '@/styles/theme'
 import styled from 'styled-components'
 
 interface Props {
-  item: { timer: string; title: string; text: string; link: string }
+  item: { timer: string; title: string; texts: string[]; link: string }
   isLast?: boolean
 }
 
@@ -43,7 +43,8 @@ export default function ExperienceCard({ item, isLast }: Props) {
               />
             </svg>
           </p>
-          <p className="c-experience__content__text">{item.text}</p>
+          {item.texts.map((text) => <p className="c-experience__content__text">{text}</p>)}
+
         </div>
       </div>
     </Container>
@@ -119,8 +120,11 @@ const Container = styled.a<{ isLast?: boolean }>`
     .c-experience__content__text {
       font-size: 14px;
       color: ${({ theme }) => theme.textExpirienceColor};
-
       font-weight: 400;
+
+      & + p{
+        margin-top: 1rem;
+      }
     }
   }
 
