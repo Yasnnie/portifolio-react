@@ -15,10 +15,10 @@ import TelaBrasilImg from '/public/assets/img/telabrasil.jpeg'
 
 export const projects = [
   {
-    title: 'Supera Enem',
+    title: 'Scholarys',
     subtitle: 'Autoral | Trabalho de Conclusão de Curso (TCC)',
     description:
-      'Plataforma autoral desenvolvida como TCC, o Supera Enem utiliza inteligência artificial para oferecer uma preparação personalizada para o ENEM. Liderei o desacoplamento do portal do usuário em um micro-frontend com Next.js, garantindo modularidade, escalabilidade e alta performance. A plataforma inclui planejamento semanal inteligente, simulados diários, análise de desempenho e criação de resumos e flashcards personalizados.',
+      'Plataforma autoral desenvolvida como TCC, a Scholarys utiliza inteligência artificial para oferecer uma preparação personalizada para o ENEM. A plataforma inclui planejamento semanal inteligente, simulados diários, análise de desempenho e criação de resumos e flashcards personalizados.',
     technologies: ['Next.js', 'Docker', 'Spring Boot', 'Keycloak', 'MinIO', 'RabbitMQ'],
     link: 'https://www.superaenem.com.br/',
     img: [SuperaEnemImg],
