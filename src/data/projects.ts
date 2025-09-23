@@ -20,7 +20,7 @@ export const projects = [
     description:
       'Plataforma autoral desenvolvida como TCC, a Scholarys utiliza inteligência artificial para oferecer uma preparação personalizada para o ENEM. A plataforma inclui planejamento semanal inteligente, simulados diários, análise de desempenho e criação de resumos e flashcards personalizados.',
     technologies: ['Next.js', 'Docker', 'Spring Boot', 'Keycloak', 'MinIO', 'RabbitMQ'],
-    link: 'https://www.superaenem.com.br/',
+    link: 'https://www.scholarys.com.br/',
     img: [SuperaEnemImg],
   },
   {
