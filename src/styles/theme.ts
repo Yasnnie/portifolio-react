@@ -16,6 +16,7 @@ export const lightTheme: DefaultTheme = {
   bg000: '#F6F6F6',
   bg100: '#ECECEC',
   primary: '#FF8A00',
+  muted: '#fbb666ff',
 
   headerBoderColor: 'rgba(0, 0, 0, 0.15)',
   navLinkColor: '#727272',
@@ -51,6 +52,7 @@ export const darkTheme: DefaultTheme = {
   bg000: '#171615',
   bg100: '#101010',
   primary: '#FF8A00',
+  muted: '#fbb666ff',
 
   headerBoderColor: 'rgba(255, 255, 255, 0.5)',
   navLinkColor: '#fff',

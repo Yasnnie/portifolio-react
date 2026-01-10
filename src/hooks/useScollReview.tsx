@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+﻿import { useEffect } from 'react'
 
 interface ScrollReviewConfig {
   origin?: string | undefined
@@ -10,7 +10,7 @@ interface ScrollReviewConfig {
   scale?: number | undefined
   easing?: string | undefined
   cleanup?: boolean | undefined
-  container?: any
+  container?: HTMLElement | string
   mobile?: boolean | undefined
   reset?: boolean | undefined
   useDelay?: string | undefined

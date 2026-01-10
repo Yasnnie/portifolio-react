@@ -1,9 +1,16 @@
+import { localeContent, Language } from '@/i18n/locales'
 import { theme } from '@/styles/theme'
 import styled from 'styled-components'
 import Logo from '/public/assets/icon/Logo.svg'
 import Image from 'next/image'
 import Testand from '../../../public/assets/img/SageValorant2.png'
-export default function HomeAbout() {
+
+interface Props {
+  language: Language
+}
+
+export default function HomeAbout({ language }: Props) {
+  const paragraphs = localeContent[language].homeAbout
   return (
     <Container>
       <h2>
@@ -11,37 +18,27 @@ export default function HomeAbout() {
       </h2>
 
       <p className="c-home-about__text">
-        Por volta de 2020, comecei a explorar HTML e CSS para criar sites para
-        servidores de RP e Javascrip para bots do Discord. Não demorou muito,
-        logo entrei no mercado de trabalho para minha primeira vaga como
-        desenvolvedora web em uma{' '}
-        <a href="https://pechinchou.com.br/" target="_blank">
-          startup
-        </a>{' '}
-        local. Lá, foquei em desenvolver sistemas escaláveis e com uma boa
-        experiência de usuário.
+        {paragraphs.paragraph1.intro}
+        <a href="https://pechinchou.com.br/" target="_blank" rel="noreferrer">
+          {paragraphs.paragraph1.link}
+        </a>
+        {paragraphs.paragraph1.afterLink}
       </p>
       <p className="c-home-about__text">
-        Atualmente, faço parte do{' '}
-        <a href="https://nadic.ifrn.edu.br/" target="_blank">
-          NADIC
+        {paragraphs.paragraph2.intro}
+        <a href="https://nadic.ifrn.edu.br/" target="_blank" rel="noreferrer">
+          {paragraphs.paragraph2.highlight1}
         </a>
-        , um núcleo de pesquisa dedicado a criar soluções tecnológicas para
-        diversas empresas. Lá trabalho em projetos voltados para{' '}
-        <a href="https://rieh.mec.gov.br/" target="_blank">
-          educação brasileira
+        {paragraphs.paragraph2.middle}
+        <a href="https://rieh.mec.gov.br/" target="_blank" rel="noreferrer">
+          {paragraphs.paragraph2.highlight2}
         </a>
-        . Meu objetivo é contribuir para a sociedade através da tecnologia,
-        buscando impactar positivamente a vida das pessoas. Sempre me dediquei a
-        projetos que têm o potencial de alcançar grandes massas e fazer a
-        diferença no mundo.
+        {paragraphs.paragraph2.outro}
       </p>
       <p className="c-home-about__text">
-        No meu tempo livre, gosto de jogar{' '}
-        <span className="cursor">Valorant</span> e outros jogos online, ouvir
-        música e assistir a séries e filmes. Fora do computador, priorizo
-        momentos de qualidade com minha família e amigos, como também conhecer
-        novos lugares.
+        {paragraphs.paragraph3.intro}
+        <span className="cursor">{paragraphs.paragraph3.highlight}</span>
+        {paragraphs.paragraph3.outro}
       </p>
     </Container>
   )

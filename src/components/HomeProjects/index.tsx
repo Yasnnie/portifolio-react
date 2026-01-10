@@ -1,26 +1,35 @@
 import styled from 'styled-components'
 import { theme } from '@/styles/theme'
-import BlueArrow from '/public/assets/icon/BlueArrow.svg'
-import Image from 'next/image'
 import LineProjectCard from '../LineProjectCard'
 import { projects } from '@/data/projects'
-import { useEffect } from 'react'
+import { Language, localeContent } from '@/i18n/locales'
 
-export default function HomeProjects() {
+interface Props {
+  language: Language
+}
+
+export default function HomeProjects({ language }: Props) {
   return (
     <Container id="projetos">
       <div className="c-home-projects__d-flex">
-        <h3 className="c-home-projects__title">Projetos</h3>
-
-        {/* <a className="c-home-projects__link">
-          Todos os projetos
-          <Image src={BlueArrow} alt="icone ir" />
-        </a> */}
+        <h3 className="c-home-projects__title">
+          {localeContent[language].homeProjectsTitle}
+        </h3>
       </div>
 
       <div className="c-home-projects__c-cards">
         {projects.map((item, index) => (
-          <LineProjectCard key={index} item={item} />
+          <LineProjectCard
+            key={index}
+            item={{
+              title: item.title[language],
+              subtitle: item.subtitle,
+              description: item.description[language],
+              technologies: item.technologies,
+              link: item.link,
+              img: item.img,
+            }}
+          />
         ))}
       </div>
     </Container>

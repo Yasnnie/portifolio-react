@@ -2,33 +2,54 @@ import styled from 'styled-components'
 import ExperienceCard from '../ExperienceCard'
 import { Download } from 'react-feather'
 import { dataStudy, dataWork } from '@/data/work'
-export default function ExperienceContainer() {
+import { localeContent, Language } from '@/i18n/locales'
+
+interface Props {
+  language: Language
+}
+
+export default function ExperienceContainer({ language }: Props) {
+  const experience = localeContent[language].experience
+  const localizedWork = dataWork.map((item) => ({
+    timer: item.timer[language],
+    title: item.title[language],
+    texts: item.texts.map((text) => text[language]),
+    link: item.link,
+  }))
+
+  const localizedStudy = dataStudy.map((item) => ({
+    timer: item.timer[language],
+    title: item.title[language],
+    texts: item.texts.map((text) => text[language]),
+    link: item.link,
+  }))
+
   return (
     <Container id="experiencia">
       <div className="row">
-        <h3 className="c-title">Profissional</h3>
+        <h3 className="c-title">{experience.professionalTitle}</h3>
         <a href="/CV - Yasmin Carvalho.pdf" download>
           <Download size={16} />
-          Download CV
+          {experience.downloadResume}
         </a>
       </div>
 
-      {dataWork.map((item, index) => (
+      {localizedWork.map((item, index) => (
         <ExperienceCard
           key={index}
           item={item}
-          isLast={index == dataWork.length - 1}
+          isLast={index == localizedWork.length - 1}
         />
       ))}
 
       <h3 className="c-title" style={{ marginTop: '64px' }}>
-        Acadêmica
+        {experience.academicTitle}
       </h3>
-      {dataStudy.map((item, index) => (
+      {localizedStudy.map((item, index) => (
         <ExperienceCard
           key={index}
           item={item}
-          isLast={index == dataStudy.length - 1}
+          isLast={index == localizedStudy.length - 1}
         />
       ))}
     </Container>
@@ -78,4 +99,3 @@ const Container = styled.section`
     padding: 68px 0;
   }
 `
-

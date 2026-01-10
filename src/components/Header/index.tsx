@@ -1,41 +1,21 @@
-import { theme } from '@/styles/theme'
 import Image from 'next/image'
 import styled from 'styled-components'
-
 import ProfileImg from '/public/assets/img/profile.jpeg'
-
 import { useEffect, useState } from 'react'
 import Contact from '../Contact'
 import { Home, Codepen, Briefcase } from 'react-feather'
-import { ThemaModeButton } from '../ThemaModeButton'
+import { localeContent, Language } from '@/i18n/locales'
 
 const iconSize = 20
+const languageOptions: Language[] = ['pt', 'en']
 
-const NavOptions = [
-  {
-    text: 'Início',
-    icon: <Home width={iconSize} height={iconSize} />,
+interface Props {
+  language: Language
+  onLanguageChange: (language: Language) => void
+}
 
-    link: '#',
-  },
-  {
-    text: 'Experiência',
-    icon: <Briefcase width={iconSize} height={iconSize} />,
-
-    link: '#experiencia',
-  },
-  {
-    text: 'Projetos',
-    icon: <Codepen width={iconSize} height={iconSize} />,
-
-    link: '#projetos',
-  },
-]
-
-export default function Header() {
+export default function Header({ language, onLanguageChange }: Props) {
   const [selected, setSelected] = useState('#')
-
-  const objectSelected = NavOptions.find((item) => item.link == selected)
 
   useEffect(() => {
     const sections = [
@@ -72,6 +52,27 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const headerContent = localeContent[language].header
+  const navOptions = [
+    {
+      text: headerContent.nav.home,
+      icon: <Home width={iconSize} height={iconSize} />,
+      link: '#',
+    },
+    {
+      text: headerContent.nav.experience,
+      icon: <Briefcase width={iconSize} height={iconSize} />,
+      link: '#experiencia',
+    },
+    {
+      text: headerContent.nav.projects,
+      icon: <Codepen width={iconSize} height={iconSize} />,
+      link: '#projetos',
+    },
+  ]
+
+  const objectSelected = navOptions.find((item) => item.link == selected)
+
   return (
     <>
       <MobileTitle open={objectSelected?.link != '#'}>
@@ -89,10 +90,10 @@ export default function Header() {
           />
         </div>
         <h1 className="c-header__title">Yasmin Carvalho</h1>
-        <p className="c-header__subtitle">Desenvolvedora Web e Mobile</p>
+        <p className="c-header__subtitle">{headerContent.subtitle}</p>
         <Contact />
         <nav className="c-header__nav">
-          {NavOptions.map((item, index) => {
+          {navOptions.map((item, index) => {
             const isSelect = selected == item.link
 
             return (
@@ -109,7 +110,24 @@ export default function Header() {
             )
           })}
         </nav>
-        {/* <ThemaModeButton /> */}
+        <div className="c-header__language">
+          <span>{headerContent.languageLabel}</span>
+          <div className="c-header__language__buttons">
+            {languageOptions.map((option) => (
+              <button
+                type="button"
+                key={option}
+                className={`c-header__language__button ${
+                  language === option && 'c-header__language__button--selected'
+                }`}
+                aria-pressed={language === option}
+                onClick={() => onLanguageChange(option)}
+              >
+                {option === 'pt' ? 'PT-BR' : 'EN'}
+              </button>
+            ))}
+          </div>
+        </div>
       </Container>
     </>
   )
@@ -148,6 +166,47 @@ const Container = styled.header`
     text-align: center;
     margin-top: 0.25rem;
     color: ${({ theme }) => theme.navLinkColor};
+  }
+
+  .c-header__language {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: ${({ theme }) => theme.navLinkColor};
+  }
+
+  .c-header__language__buttons {
+    display: flex;
+    gap: 0.35rem;
+  }
+
+  .c-header__language__button {
+    border: 1px solid ${({ theme }) => theme.navLinkColor};
+    background: transparent;
+    color: ${({ theme }) => theme.navLinkColor};
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      transition: 0.2s;
+      background: ${({ theme }) => theme.muted} !important;
+      border-color: ${({ theme }) => theme.primary};
+      color: ${({ theme }) => theme.primary};
+    }
+  }
+
+  .c-header__language__button--selected {
+    background: ${({ theme }) => theme.primary};
+    color: #fff;
+    border-color: ${({ theme }) => theme.primary};
   }
 
   .c-header__nav {

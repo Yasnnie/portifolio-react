@@ -1,5 +1,4 @@
-import { theme } from '@/styles/theme'
-import Image, { StaticImageData } from 'next/image'
+﻿import Image, { StaticImageData } from 'next/image'
 import styled from 'styled-components'
 
 interface Props {
@@ -27,8 +26,13 @@ export default function LineProjectCard({ item }: Props) {
             <p className="c-card__description">{item.description}</p>
 
             <div className="c-card__technology">
-              {item.technologies.map((technology) => (
-                <p className="c-card__technology__option">{technology}</p>
+              {item.technologies.map((technology, index) => (
+                <p
+                  key={`${technology}-${index}`}
+                  className="c-card__technology__option"
+                >
+                  {technology}
+                </p>
               ))}
             </div>
           </div>

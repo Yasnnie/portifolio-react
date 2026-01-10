@@ -5,7 +5,7 @@ declare module 'styled-components' {
     bg000: string
     bg100: string
     primary: string
-
+    muted: string
     headerBoderColor: string
     navLinkColor: string
     navLinkBgHover: string

@@ -1,17 +1,23 @@
-import { theme } from '@/styles/theme'
 import styled from 'styled-components'
 import Header from '../Header'
 import { ReactNode } from 'react'
+import { Language } from '@/i18n/locales'
 
 interface Props {
   children: ReactNode
+  language: Language
+  onLanguageChange: (language: Language) => void
 }
 
-export default function PageContainer({ children }: Props) {
+export default function PageContainer({
+  children,
+  language,
+  onLanguageChange,
+}: Props) {
   return (
     <Container>
       <div className="c-main">
-        <Header />
+        <Header language={language} onLanguageChange={onLanguageChange} />
 
         <main className="c-main__main">{children}</main>
       </div>

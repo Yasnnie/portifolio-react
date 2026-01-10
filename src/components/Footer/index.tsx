@@ -1,57 +1,57 @@
-import { theme } from '@/styles/theme'
+import { localeContent, Language } from '@/i18n/locales'
 import styled from 'styled-components'
 
-export default function Footer() {
+interface Props {
+  language: Language
+}
+
+export default function Footer({ language }: Props) {
+  const footer = localeContent[language].footer
+
   return (
     <Container>
       <p className="c-footer__text">
-        O Designer desse portifólio foi criado no{' '}
+        {footer.designer}
         <a
           className="c-footer__link"
           href="https://www.figma.com/"
           target="_blank"
+          rel="noreferrer"
         >
           Figma
         </a>{' '}
-        e código feito pelo{' '}
+        {footer.code}
         <a
           className="c-footer__link"
           href="https://code.visualstudio.com/"
           target="_blank"
+          rel="noreferrer"
         >
           Visual Studio Code
         </a>
-        . As tecnológias usasdas são:{' '}
+        . {footer.technologies}
         <a
           className="c-footer__link"
           href="https://nextjs.org/"
           target="_blank"
+          rel="noreferrer"
         >
           Next.js
-        </a>{' '}
-        e{' '}
+        </a>
+        {footer.techConnector}
         <a
           className="c-footer__link"
           href="https://styled-components.com/"
           target="_blank"
+          rel="noreferrer"
         >
-          Styled-Componets
+          Styled-Components
         </a>
-        , públicado na{' '}
-        <a
-          className="c-footer__link"
-          href="https://vercel.com/"
-          target="_blank"
-        >
-          Vercel
-        </a>
-        .
+        , {footer.published}
       </p>
 
-      <p className="c-footer__text">Até a próxima! 👋</p>
-      <span className="c-footer__copyright">
-        © 2024 - Yasmin Carvalho T. de Alencar
-      </span>
+      <p className="c-footer__text">{footer.closing}</p>
+      <span className="c-footer__copyright">{footer.copyright}</span>
     </Container>
   )
 }
