@@ -26,6 +26,9 @@ export default function PageContainer({
 }
 
 const Container = styled.div`
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   width: 100%;
   min-height: 100vh;
   background: radial-gradient(
@@ -36,14 +39,56 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   padding: 5.5rem 1.5rem;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -18rem;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.6;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  &::before {
+    background: conic-gradient(
+      from 45deg,
+      rgba(30, 70, 170, 0.32),
+      rgba(30, 70, 170, 0.05),
+      rgba(30, 70, 170, 0.24),
+      rgba(30, 70, 170, 0.05),
+      rgba(30, 70, 170, 0.32)
+    );
+    animation: spinGlow 24s linear infinite;
+  }
+
+  &::after {
+    background: radial-gradient(
+        circle at 20% 25%,
+        rgba(255, 255, 255, 0.08),
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 82% 18%,
+        rgba(30, 70, 170, 0.16),
+        transparent 44%
+      ),
+      radial-gradient(
+        circle at 70% 80%,
+        rgba(30, 70, 170, 0.14),
+        transparent 45%
+      );
+    animation: driftGlow 26s ease-in-out infinite;
+  }
 
   .c-main {
     width: 100%;
     max-width: 72rem;
     display: flex;
     gap: 3.5rem;
-
     position: relative;
+    z-index: 1;
 
     .c-main__main {
       width: 100%;
@@ -56,6 +101,27 @@ const Container = styled.div`
       justify-content: flex-start;
       flex-direction: column;
       gap: 1.5rem;
+    }
+  }
+
+  @keyframes spinGlow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes driftGlow {
+    0% {
+      transform: translate(-8%, -4%) scale(1);
+    }
+    50% {
+      transform: translate(6%, 5%) scale(1.05);
+    }
+    100% {
+      transform: translate(-8%, -4%) scale(1);
     }
   }
 `

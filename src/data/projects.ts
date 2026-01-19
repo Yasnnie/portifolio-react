@@ -28,24 +28,7 @@ export interface ProjectItem {
 }
 
 export const projects: ProjectItem[] = [
-  {
-    title: { pt: 'Scholarys', en: 'Scholarys' },
-    subtitle: 'Autoral | Trabalho de Conclusão de Curso (TCC)',
-    description: {
-      pt: 'Plataforma autoral desenvolvida como TCC, a Scholarys utiliza inteligência artificial para oferecer uma preparação personalizada para o ENEM. A plataforma inclui planejamento semanal inteligente, simulados diários, análise de desempenho e criação de resumos e flashcards personalizados.',
-      en: 'Scholarys is an original platform developed as my final project (TCC). It uses artificial intelligence to offer personalized ENEM preparation, including smart weekly planning, daily mock exams, performance insights, and automated generation of summaries and flashcards.',
-    },
-    technologies: [
-      'Next.js',
-      'Docker',
-      'Spring Boot',
-      'Keycloak',
-      'MinIO',
-      'RabbitMQ',
-    ],
-    link: 'https://www.scholarys.com.br/',
-    img: [SuperaEnemImg],
-  },
+
   {
     title: { pt: 'Pé de Meia', en: 'Pé de Meia' },
     subtitle: 'UFAL/MEC',
@@ -62,6 +45,23 @@ export const projects: ProjectItem[] = [
     ],
     link: 'https://gestaopresente.mec.gov.br/',
     img: [PDMImg],
+  },
+    {
+    title: { pt: 'OrçaPharma', en: 'OrçaPharma' },
+    subtitle: 'Novate8',
+    description: {
+      pt: 'No Orçapharma, um serviço de multi-atendimento para redes de farmácias, desenvolvi um micro-front-end em Next.js para comunicação em tempo real via WebSocket com o WhatsApp. Este micro-serviço otimizou a gestão de atendimento e facilitou a criação de canais de vendas integrados entre sistemas web e aplicativos de mensagens.',
+      en: 'At Orçapharma, a multi-service platform for pharmacy networks, I built a Next.js micro-frontend that enables real-time WhatsApp communication via WebSocket. This micro-service optimized customer support and helped align web systems with messaging channels for a unified sales flow.',
+    },
+    technologies: [
+      'Next.js',
+      'Django',
+      'Scss',
+      'Websocket',
+      'Styled-Components',
+    ],
+    link: 'https://orcapharma.com.br/',
+    img: [OrcapharmaImg, Orcapharma2Img],
   },
   {
     title: { pt: 'Novate8 Landing Page', en: 'Novate8 Landing Page' },
@@ -80,23 +80,7 @@ export const projects: ProjectItem[] = [
     link: 'https://www.novate8.com.br',
     img: [NovateLandingImg],
   },
-  {
-    title: { pt: 'OrçõaPharma', en: 'OrçõaPharma' },
-    subtitle: 'Novate8',
-    description: {
-      pt: 'No Orçõapharma, um serviço de multi-atendimento para redes de farmácias, desenvolvi um micro-front-end em Next.js para comunicação em tempo real via WebSocket com o WhatsApp. Este micro-serviço otimizou a gestão de atendimento e facilitou a criação de canais de vendas integrados entre sistemas web e aplicativos de mensagens.',
-      en: 'At Orçõapharma, a multi-service platform for pharmacy networks, I built a Next.js micro-frontend that enables real-time WhatsApp communication via WebSocket. This micro-service optimized customer support and helped align web systems with messaging channels for a unified sales flow.',
-    },
-    technologies: [
-      'Next.js',
-      'Django',
-      'Scss',
-      'Websocket',
-      'Styled-Components',
-    ],
-    link: 'https://orcapharma.com.br/',
-    img: [OrcapharmaImg, Orcapharma2Img],
-  },
+
   {
     title: { pt: 'Tela Brasil', en: 'Tela Brasil' },
     subtitle: 'UFAL/MINC',
@@ -105,7 +89,7 @@ export const projects: ProjectItem[] = [
       en: 'I led the mobile development of Tela Brasil, the public streaming service from the Ministry of Culture. I created a custom player with subtitles, playback speed controls, and quality switching, along with offline features such as downloads for films and series to keep the experience accessible anywhere.',
     },
     technologies: ['React-Native', 'Expo'],
-    link: 'https://telabrasil-dev.nees.ufal.br/',
+    link: '',
     img: [TelaBrasilImg],
   },
   {
@@ -156,6 +140,25 @@ export const projects: ProjectItem[] = [
     ],
     link: 'https://pei.nadic.ifrn.edu.br/',
     img: [PEISImg],
+  },
+
+{
+    title: { pt: 'Scholarys', en: 'Scholarys' },
+    subtitle: 'Autoral | Trabalho de Conclusão de Curso (TCC)',
+    description: {
+      pt: 'Plataforma autoral desenvolvida como TCC, a Scholarys utiliza inteligência artificial para oferecer uma preparação personalizada para o ENEM. A plataforma inclui planejamento semanal inteligente, simulados diários, análise de desempenho e criação de resumos e flashcards personalizados.',
+      en: 'Scholarys is an original platform developed as my final project (TCC). It uses artificial intelligence to offer personalized ENEM preparation, including smart weekly planning, daily mock exams, performance insights, and automated generation of summaries and flashcards.',
+    },
+    technologies: [
+      'Next.js',
+      'Docker',
+      'Spring Boot',
+      'Keycloak',
+      'MinIO',
+      'RabbitMQ',
+    ],
+    link: '',
+    img: [SuperaEnemImg],
   },
   {
     title: { pt: 'MCM Website', en: 'MCM Website' },

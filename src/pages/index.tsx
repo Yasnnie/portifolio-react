@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { useRouter } from 'next/router'
 import PageContainer from '@/components/PageContainer'
 import HomeAbout from '@/components/HomeAbout'
 import Line from '@/components/Line'
@@ -10,9 +11,11 @@ import Footer from '@/components/Footer'
 import { localeContent, Language } from '@/i18n/locales'
 
 const LANGUAGE_STORAGE_KEY = 'site-language'
-const DEFAULT_LANGUAGE: Language = 'pt'
+const DEFAULT_LANGUAGE: Language = 'en'
 
 export default function Home() {
+  const router = useRouter()
+  const hasInitializedLanguage = useRef(false)
   const [language, setLanguage] = useState<Language>(DEFAULT_LANGUAGE)
   useScrollReveal('.scroll-review-item', {
     duration: 1000,
@@ -22,8 +25,43 @@ export default function Home() {
     easing: 'ease',
   })
 
+  const updateLanguageQuery = useCallback(
+    (nextLanguage: Language) => {
+      if (!router.isReady) {
+        return
+      }
+
+      router.replace(
+        {
+          pathname: router.pathname,
+          query: { ...router.query, lang: nextLanguage },
+        },
+        undefined,
+        { shallow: true }
+      )
+    },
+    [router]
+  )
+
   useEffect(() => {
-    if (typeof window === 'undefined') {
+    if (
+      typeof window === 'undefined' ||
+      hasInitializedLanguage.current ||
+      !router.isReady
+    ) {
+      return
+    }
+
+    hasInitializedLanguage.current = true
+
+    const queryLanguage = router.query.lang
+
+    const normalizedQueryLanguage = Array.isArray(queryLanguage)
+      ? queryLanguage[0]
+      : queryLanguage
+
+    if (normalizedQueryLanguage === 'pt' || normalizedQueryLanguage === 'en') {
+      setLanguage(normalizedQueryLanguage)
       return
     }
 
@@ -31,6 +69,7 @@ export default function Home() {
 
     if (storedLanguage === 'pt' || storedLanguage === 'en') {
       setLanguage(storedLanguage)
+      updateLanguageQuery(storedLanguage)
       return
     }
 
@@ -38,10 +77,15 @@ export default function Home() {
 
     if (browserLanguage.startsWith('en')) {
       setLanguage('en')
+      updateLanguageQuery('en')
     } else if (browserLanguage.startsWith('pt')) {
       setLanguage('pt')
+      updateLanguageQuery('pt')
+    } else {
+      setLanguage(DEFAULT_LANGUAGE)
+      updateLanguageQuery(DEFAULT_LANGUAGE)
     }
-  }, [])
+  }, [router.isReady, router.query.lang, updateLanguageQuery])
 
   useEffect(() => {
     if (typeof window === 'undefined') {
@@ -50,6 +94,14 @@ export default function Home() {
 
     window.localStorage.setItem(LANGUAGE_STORAGE_KEY, language)
   }, [language])
+
+  const handleLanguageChange = useCallback(
+    (nextLanguage: Language) => {
+      setLanguage(nextLanguage)
+      updateLanguageQuery(nextLanguage)
+    },
+    [updateLanguageQuery]
+  )
 
   const content = localeContent[language]
   const meta = content.metadata
@@ -88,7 +140,7 @@ export default function Home() {
         />
       </Head>
 
-      <PageContainer language={language} onLanguageChange={setLanguage}>
+      <PageContainer language={language} onLanguageChange={handleLanguageChange}>
         <HomeAbout language={language} />
         <Line />
         <ExperienceContainer language={language} />

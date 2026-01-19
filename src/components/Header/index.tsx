@@ -143,8 +143,10 @@ const Container = styled.header`
   top: 32px;
 
   .c-header__c-img {
-    width: 10rem;
-    height: 10rem;
+    min-width: 10rem;
+    max-width: 10rem;
+    min-height: 10rem;
+    max-height: 10rem;
     overflow: hidden;
     border-radius: 100%;
     margin: 0 auto;
