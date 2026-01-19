@@ -28,7 +28,6 @@ export interface ProjectItem {
 }
 
 export const projects: ProjectItem[] = [
-
   {
     title: { pt: 'Pé de Meia', en: 'Pé de Meia' },
     subtitle: 'UFAL/MEC',
@@ -46,7 +45,7 @@ export const projects: ProjectItem[] = [
     link: 'https://gestaopresente.mec.gov.br/',
     img: [PDMImg],
   },
-    {
+  {
     title: { pt: 'OrçaPharma', en: 'OrçaPharma' },
     subtitle: 'Novate8',
     description: {
@@ -142,7 +141,7 @@ export const projects: ProjectItem[] = [
     img: [PEISImg],
   },
 
-{
+  {
     title: { pt: 'Scholarys', en: 'Scholarys' },
     subtitle: 'Autoral | Trabalho de Conclusão de Curso (TCC)',
     description: {

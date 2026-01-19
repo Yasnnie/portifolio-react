@@ -64,7 +64,8 @@ const Container = styled.div`
   }
 
   &::after {
-    background: radial-gradient(
+    background:
+      radial-gradient(
         circle at 20% 25%,
         rgba(255, 255, 255, 0.08),
         transparent 40%

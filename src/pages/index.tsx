@@ -37,10 +37,10 @@ export default function Home() {
           query: { ...router.query, lang: nextLanguage },
         },
         undefined,
-        { shallow: true }
+        { shallow: true },
       )
     },
-    [router]
+    [router],
   )
 
   useEffect(() => {
@@ -100,7 +100,7 @@ export default function Home() {
       setLanguage(nextLanguage)
       updateLanguageQuery(nextLanguage)
     },
-    [updateLanguageQuery]
+    [updateLanguageQuery],
   )
 
   const content = localeContent[language]
@@ -140,7 +140,10 @@ export default function Home() {
         />
       </Head>
 
-      <PageContainer language={language} onLanguageChange={handleLanguageChange}>
+      <PageContainer
+        language={language}
+        onLanguageChange={handleLanguageChange}
+      >
         <HomeAbout language={language} />
         <Line />
         <ExperienceContainer language={language} />
