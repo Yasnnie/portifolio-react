@@ -19,18 +19,18 @@ export const dataWork: ExperienceEntry[] = [
     },
     texts: [
       {
-        pt: 'Participei do desenvolvimento do sistema Orçõapharma, atuando principalmente nos módulos de leitura de receita com inteligência artificial, atendimentos via WhatsApp e na drogaria virtual. O módulo de leitura de receita foi desenvolvido em Django e utiliza IA para interpretar prescrições médicas automaticamente, reduzindo o tempo médio de resposta das farmácias para 2 minutos. Já os módulos de atendimento e drogaria virtual foram implementados em Next.js, com uso de SCSS Modules e WebSocket para comunicação em tempo real. A drogaria virtual foi reformulada com Styled Components e Next.js com getStaticPaths, permitindo personalização visual para cada farmácia (cores, logo e identidade), tornando o sistema mais escalável. Atualmente, a plataforma é utilizada por mais de 12 farmácias em todo o Brasil.',
-        en: 'I participated in the development of the Orçõapharma system, working mainly on modules for AI-powered prescription reading, WhatsApp attendance, and the virtual pharmacy. The prescription reader, built with Django, uses AI to interpret medical prescriptions automatically, reducing the average pharmacy response time to two minutes. The attendance and virtual pharmacy modules were implemented with Next.js, SCSS Modules, and WebSocket for real-time communication. The virtual pharmacy was redesigned with Styled Components and Next.js getStaticPaths, allowing each pharmacy to customize colors, logos, and identity, which made the system more scalable. Today the platform is used by more than twelve pharmacies across Brazil.',
+        pt: 'Participei do desenvolvimento do sistema OrçaPharma, atuando principalmente nos módulos de leitura de receita com inteligência artificial, atendimentos via WhatsApp e na drogaria virtual. O módulo de leitura de receita foi desenvolvido em Django e utiliza IA para interpretar prescrições médicas automaticamente, reduzindo o tempo médio de resposta das farmácias para 2 minutos. Já os módulos de atendimento e drogaria virtual foram implementados em Next.js, com uso de SCSS Modules e WebSocket para comunicação em tempo real. A drogaria virtual foi reformulada com Styled Components e Next.js com getStaticPaths, permitindo personalização visual para cada farmácia (cores, logo e identidade), tornando o sistema mais escalável. Atualmente, a plataforma é utilizada por mais de 12 farmácias em todo o Brasil.',
+        en: 'I participated in the development of the OrçaPharma system, working mainly on modules for AI-powered prescription reading, WhatsApp attendance, and the virtual pharmacy. The prescription reader, built with Django, uses AI to interpret medical prescriptions automatically, reducing the average pharmacy response time to two minutes. The attendance and virtual pharmacy modules were implemented with Next.js, SCSS Modules, and WebSocket for real-time communication. The virtual pharmacy was redesigned with Styled Components and Next.js getStaticPaths, allowing each pharmacy to customize colors, logos, and identity, which made the system more scalable. Today the platform is used by more than twelve pharmacies across Brazil.',
       },
       {
-        pt: 'Também fui responsável pela recriação da landing page institucional da empresa, com foco em um visual mais moderno, sofisticado e comercialmente atrativo. A nova versão foi desenvolvida com técnicas de SEO, incluindo o uso de meta tags, robots.txt, sitemap.xml e integração com o Google Search Console, ampliando significativamente o alcance digital da marca Orçõapharma. Além disso, configurei e integrei ferramentas de análise como o Google Analytics, permitindo o monitoramento do tráfego e o acompanhamento de métricas de desempenho da página.',
-        en: 'I also rebuilt the company’s institutional landing page, focusing on a more modern, sophisticated, and commercially attractive visual. The new version was developed with SEO techniques such as meta tags, robots.txt, sitemap.xml, and integration with Google Search Console, which significantly extended Orçõapharma’s digital reach. I also configured and integrated analytics tools like Google Analytics to monitor traffic and track performance metrics.',
+        pt: 'Também fui responsável pela recriação da landing page institucional da empresa, com foco em um visual mais moderno, sofisticado e comercialmente atrativo. A nova versão foi desenvolvida com técnicas de SEO, incluindo o uso de meta tags, robots.txt, sitemap.xml e integração com o Google Search Console, ampliando significativamente o alcance digital da marca OrçaPharma. Além disso, configurei e integrei ferramentas de análise como o Google Analytics, permitindo o monitoramento do tráfego e o acompanhamento de métricas de desempenho da página.',
+        en: 'I also rebuilt the company’s institutional landing page, focusing on a more modern, sophisticated, and commercially attractive visual. The new version was developed with SEO techniques such as meta tags, robots.txt, sitemap.xml, and integration with Google Search Console, which significantly extended OrçaPharma’s digital reach. I also configured and integrated analytics tools like Google Analytics to monitor traffic and track performance metrics.',
       },
     ],
     link: 'https://www.novate8.com.br/',
   },
   {
-    timer: { pt: '2022 - Presente', en: '2022 - Present' },
+    timer: { pt: '2022 - Abr 2026', en: '2022 - Apr 2026' },
     title: {
       pt: 'Desenvolvedora Frontend e Mobile - NADIC',
       en: 'Frontend and Mobile Developer - NADIC',
@@ -95,7 +95,7 @@ export const dataWork: ExperienceEntry[] = [
 
 export const dataStudy = [
   {
-    timer: { pt: '2022 - Presente', en: '2022 - Present' },
+    timer: { pt: '2022 - Mai 2026', en: '2022 - May 2026' },
     title: {
       pt: 'Graduação em Análise e Desenvolvimento de Sistemas',
       en: "Bachelor's Degree in Systems Analysis and Development",

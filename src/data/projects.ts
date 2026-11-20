@@ -9,9 +9,10 @@ import Orcapharma2Img from '/public/assets/img/Orcapharma2.png'
 import PDMImg from '/public/assets/img/PDM.png'
 import MCMImg from '/public/assets/img/MCM.png'
 import NovateLandingImg from '/public/assets/img/novatelanding.png'
-import SuperaEnemImg from '/public/assets/img/superaenem.png'
 import PEISImg from '/public/assets/img/PEIS.png'
 import TelaBrasilImg from '/public/assets/img/telabrasil.jpeg'
+import StudoFlowImg from '/public/assets/img/StudoFlow.png'
+import OrcaPayImg from '/public/assets/img/OrcaPay.png'
 
 export type LocalizedText = {
   pt: string
@@ -25,25 +26,34 @@ export interface ProjectItem {
   technologies: string[]
   link: string
   img: StaticImageData[]
+  /** Optional fallback for projects without screenshots: an animated Lottie tile. */
+  lottie?: 'studoFlow' | 'orcaPay'
+  featured?: boolean
 }
 
 export const projects: ProjectItem[] = [
   {
-    title: { pt: 'Pé de Meia', en: 'Pé de Meia' },
-    subtitle: 'UFAL/MEC',
+    title: { pt: 'Studo.Flow', en: 'Studo.Flow' },
+    subtitle: 'SaaS autoral',
     description: {
-      pt: 'Neste projeto de grande impacto nacional, o principal desafio foi garantir alta performance para lidar com grandes volumes de dados. Por isso, encabecei o desacoplamento das páginas e funcionalidades referentes ao portal do usuário para um micro front-end em Next.js, trazendo escalabilidade e performance de maneira modular.',
-      en: 'In this nationwide-impact initiative, the main challenge was guaranteeing high performance while handling massive data volumes. I led the decoupling of the user portal into a Next.js micro-frontend, bringing modular scalability and reliable performance to each feature.',
+      pt: 'Plataforma de estudos com inteligência artificial para estudantes. Você sobe aulas, PDFs e anotações, e o Studo.Flow transforma o material em flashcards, questionários, resumos, transcrições e audiobooks. A plataforma também reúne calendário, metas e Pomodoro, e conta com o Neuron, um assistente de IA que atende dentro do app e pelo WhatsApp. Criei e desenvolvo o produto.',
+      en: 'An AI-powered study platform for students. You upload lectures, PDFs and notes, and Studo.Flow turns the material into flashcards, quizzes, summaries, transcripts and audiobooks. It also brings together a calendar, goals and a Pomodoro timer, plus Neuron, an AI assistant that works inside the app and on WhatsApp. I created and build the product.',
     },
-    technologies: [
-      'Next.js',
-      'ChakraUi',
-      'Docker',
-      'react-query',
-      'micro-frontend',
-    ],
-    link: 'https://gestaopresente.mec.gov.br/',
-    img: [PDMImg],
+    technologies: ['SaaS', 'IA', 'Spring Boot', 'PostgreSQL'],
+    link: 'https://www.studoflow.com.br/',
+    img: [StudoFlowImg],
+    featured: true,
+  },
+  {
+    title: { pt: 'OrçaPay', en: 'OrçaPay' },
+    subtitle: 'Novate8',
+    description: {
+      pt: 'Gateway de pagamentos para negócios. Recebe por Pix e cartão, cobra por link de pagamento ou checkout e divide cada venda entre vários recebedores com o split automático. Tudo é acompanhado e conciliado em um só painel, pensado para marketplaces, franquias e SaaS.',
+      en: 'A payment gateway for businesses. It accepts Pix and cards, charges through payment links or checkout, and splits each sale among multiple recipients automatically. Everything is tracked and reconciled in a single dashboard, built for marketplaces, franchises and SaaS.',
+    },
+    technologies: ['Next.js', 'Spring Boot', 'PostgreSQL'],
+    link: 'https://orcapay.com.br/',
+    img: [OrcaPayImg],
   },
   {
     title: { pt: 'OrçaPharma', en: 'OrçaPharma' },
@@ -58,6 +68,8 @@ export const projects: ProjectItem[] = [
       'Scss',
       'Websocket',
       'Styled-Components',
+      'Spring Boot',
+      'PostgreSQL',
     ],
     link: 'https://orcapharma.com.br/',
     img: [OrcapharmaImg, Orcapharma2Img],
@@ -84,11 +96,11 @@ export const projects: ProjectItem[] = [
     title: { pt: 'Tela Brasil', en: 'Tela Brasil' },
     subtitle: 'UFAL/MINC',
     description: {
-      pt: 'Liderei o desenvolvimento mobile do Tela Brasil, o streaming público do Ministério da Cultura. Fui responsável por criar um player customizado com funções como legendas, ajustes de velocidade e qualidade de reprodução. Também desenvolvi recursos offline, incluindo download de filmes e séries para visualização sem conexão, garantindo acessibilidade em qualquer lugar.',
-      en: 'I led the mobile development of Tela Brasil, the public streaming service from the Ministry of Culture. I created a custom player with subtitles, playback speed controls, and quality switching, along with offline features such as downloads for films and series to keep the experience accessible anywhere.',
+      pt: 'Liderei o desenvolvimento mobile do Tela Brasil, o streaming público do Ministério da Cultura, hoje no ar. Fui responsável por criar um player customizado com funções como legendas, ajustes de velocidade e qualidade de reprodução. Também desenvolvi recursos offline, incluindo download de filmes e séries para visualização sem conexão, garantindo acessibilidade em qualquer lugar.',
+      en: 'I led the mobile development of Tela Brasil, the public streaming service from the Ministry of Culture, now live. I created a custom player with subtitles, playback speed controls, and quality switching, along with offline features such as downloads for films and series to keep the experience accessible anywhere.',
     },
     technologies: ['React-Native', 'Expo'],
-    link: '',
+    link: 'https://telabrasil.cultura.gov.br/',
     img: [TelaBrasilImg],
   },
   {
@@ -142,24 +154,6 @@ export const projects: ProjectItem[] = [
   },
 
   {
-    title: { pt: 'Scholarys', en: 'Scholarys' },
-    subtitle: 'Autoral | Trabalho de Conclusão de Curso (TCC)',
-    description: {
-      pt: 'Plataforma autoral desenvolvida como TCC, a Scholarys utiliza inteligência artificial para oferecer uma preparação personalizada para o ENEM. A plataforma inclui planejamento semanal inteligente, simulados diários, análise de desempenho e criação de resumos e flashcards personalizados.',
-      en: 'Scholarys is an original platform developed as my final project (TCC). It uses artificial intelligence to offer personalized ENEM preparation, including smart weekly planning, daily mock exams, performance insights, and automated generation of summaries and flashcards.',
-    },
-    technologies: [
-      'Next.js',
-      'Docker',
-      'Spring Boot',
-      'Keycloak',
-      'MinIO',
-      'RabbitMQ',
-    ],
-    link: '',
-    img: [SuperaEnemImg],
-  },
-  {
     title: { pt: 'MCM Website', en: 'MCM Website' },
     subtitle: 'MCM',
     description: {
@@ -172,9 +166,3 @@ export const projects: ProjectItem[] = [
   },
 ]
 
-export const highLightProjects = [
-  projects[0],
-  projects[1],
-  projects[4],
-  projects[6],
-]

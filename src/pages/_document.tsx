@@ -1,4 +1,3 @@
-import Analytics from '@/components/Analytics'
 import Document, {
   DocumentContext,
   DocumentInitialProps,
@@ -34,24 +33,12 @@ export default class MyDocument extends Document {
   }
   render() {
     return (
-      <Html>
+      <Html lang={this.props.locale === 'en' ? 'en' : 'pt-BR'}>
         <Head>
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossOrigin="anonymous"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
-            rel="stylesheet"
-          />
-          <link rel="shortcut icon" href="/favicon.ico" type="image/ico" />
         </Head>
         <body>
           <Main />
           <NextScript />
-          <Analytics />
         </body>
       </Html>
     )

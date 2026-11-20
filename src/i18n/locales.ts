@@ -1,60 +1,67 @@
 export type Language = 'pt' | 'en'
 
-interface NavLabels {
-  home: string
-  experience: string
-  projects: string
-}
-
-interface HomeAboutParagraph1 {
-  intro: string
-  link: string
-  afterLink: string
-}
-
-interface HomeAboutParagraph2 {
-  intro: string
-  highlight1: string
-  middle: string
-  highlight2: string
-  outro: string
-}
-
-interface HomeAboutParagraph3 {
-  intro: string
-  highlight: string
-  outro: string
-}
-
 export type LocalizedString = {
   pt: string
   en: string
 }
 
+export interface AboutCard {
+  label: string
+  title: string
+  text: string
+}
+
 export interface LocaleContent {
-  header: {
-    subtitle: string
-    nav: NavLabels
+  nav: {
+    about: string
+    projects: string
+    experience: string
+    contact: string
+    openMenu: string
+    closeMenu: string
     languageLabel: string
   }
-  homeAbout: {
-    paragraph1: HomeAboutParagraph1
-    paragraph2: HomeAboutParagraph2
-    paragraph3: HomeAboutParagraph3
+  hero: {
+    status: string
+    line1: string
+    line2: string
+    intro: string
+    ctaProjects: string
+    ctaResume: string
+    photoAlt: string
   }
-  homeProjectsTitle: string
+  about: {
+    eyebrow: string
+    title: string
+    intro: string
+    cards: AboutCard[]
+    fun: { before: string; highlight: string; after: string }
+  }
+  projects: {
+    eyebrow: string
+    title: string
+    featuredLabel: string
+    live: string
+    visit: string
+  }
   experience: {
+    eyebrow: string
     professionalTitle: string
     academicTitle: string
     downloadResume: string
+    showMore: string
+    showLess: string
+    visitCompany: string
+    visitCourse: string
+  }
+  contact: {
+    eyebrow: string
+    title: string
+    text: string
+    backToTop: string
   }
   footer: {
-    designer: string
-    code: string
-    technologies: string
-    techConnector: string
-    published: string
-    closing: string
+    built: string
     copyright: string
   }
   metadata: {
@@ -63,6 +70,7 @@ export interface LocaleContent {
     keywords: string
     ogTitle: string
     ogDescription: string
+    ogImageAlt: string
   }
   structuredData: {
     jobTitle: string
@@ -72,133 +80,201 @@ export interface LocaleContent {
 
 export const localeContent: Record<Language, LocaleContent> = {
   pt: {
-    header: {
-      subtitle: 'Desenvolvedora Web e Mobile',
-      nav: {
-        home: 'Início',
-        experience: 'Experiência',
-        projects: 'Projetos',
-      },
+    nav: {
+      about: 'Sobre',
+      projects: 'Projetos',
+      experience: 'Experiência',
+      contact: 'Contato',
+      openMenu: 'Abrir menu',
+      closeMenu: 'Fechar menu',
       languageLabel: 'Idioma',
     },
-    homeAbout: {
-      paragraph1: {
-        intro:
-          'Por volta de 2020, comecei a explorar HTML e CSS para criar sites para servidores de RP e JavaScript para bots do Discord. Não demorou muito, logo entrei no mercado de trabalho para minha primeira vaga como desenvolvedora web em uma ',
-        link: 'startup local',
-        afterLink:
-          '. Lá, foquei em desenvolver sistemas escaláveis e com uma boa experiência de usuário.',
-      },
-      paragraph2: {
-        intro: 'Atualmente, faço parte do ',
-        highlight1: 'NADIC',
-        middle:
-          ', um núcleo de pesquisa dedicado a criar soluções tecnológicas para diversas empresas. Lá trabalho em projetos voltados para a ',
-        highlight2: 'educação brasileira',
-        outro:
-          '. Meu objetivo é contribuir para a sociedade através da tecnologia, buscando impactar positivamente a vida das pessoas. Sempre me dediquei a projetos que têm o potencial de alcançar grandes massas e fazer a diferença no mundo.',
-      },
-      paragraph3: {
-        intro: 'No meu tempo livre, gosto de jogar ',
+    hero: {
+      status: 'Studo.Flow no ar',
+      line1: 'Full stack',
+      line2: 'developer',
+      intro:
+        'Sou desenvolvedora full stack com Spring Boot e Next.js. Transformo ideias em produtos que as pessoas usam de verdade, de portais do governo a um SaaS próprio.',
+      ctaProjects: 'Ver projetos',
+      ctaResume: 'Baixar CV',
+      photoAlt: 'Foto de Yasmin Carvalho sorrindo em uma praça na Itália',
+    },
+    about: {
+      eyebrow: 'Sobre',
+      title: 'Do primeiro HTML ao meu próprio produto.',
+      intro:
+        'Comecei em 2020, com HTML e CSS para sites de servidores de RP e JavaScript para bots do Discord. De lá para cá, passei por uma startup de promoções, por sistemas de educação pública em escala nacional e por produtos para redes de farmácias. Hoje sou desenvolvedora full stack com Spring Boot e Next.js e desenvolvo o Studo.Flow, meu SaaS de estudos com IA.',
+      cards: [
+        {
+          label: 'Hoje',
+          title: 'Studo.Flow',
+          text: 'Meu SaaS autoral. Produto, interface e código na mesma mesa, e cada decisão passa por mim.',
+        },
+        {
+          label: 'Ofício',
+          title: 'Full stack',
+          text: 'Spring Boot e PostgreSQL no back-end, Next.js no front-end. Do banco de dados à interface, e também apps mobile com React Native.',
+        },
+        {
+          label: 'Impacto',
+          title: 'Educação pública',
+          text: 'Pé de Meia, RIEH e Tela Brasil: sistemas de escala nacional feitos para o MEC e o MinC.',
+        },
+        {
+          label: 'Fora do código',
+          title: 'Jogos, música e viagens',
+          text: '',
+        },
+      ],
+      fun: {
+        before: 'Jogo ',
         highlight: 'Valorant',
-        outro:
-          ' e outros jogos online, ouvir música e assistir a séries e filmes. Fora do computador, priorizo momentos de qualidade com minha família e amigos, como também conhecer novos lugares.',
+        after:
+          ', ouço música, assisto a séries e filmes e passo tempo com família e amigos. Sempre que dá, conheço um lugar novo.',
       },
     },
-    homeProjectsTitle: 'Projetos',
+    projects: {
+      eyebrow: 'Projetos',
+      title: 'Trabalhos selecionados.',
+      featuredLabel: 'Projeto autoral',
+      live: 'No ar',
+      visit: 'Visitar projeto',
+    },
     experience: {
-      professionalTitle: 'Profissional',
-      academicTitle: 'Acadêmica',
-      downloadResume: 'Download CV',
+      eyebrow: 'Experiência',
+      professionalTitle: 'Trajetória profissional.',
+      academicTitle: 'Formação.',
+      downloadResume: 'Baixar CV',
+      showMore: 'Ver detalhes',
+      showLess: 'Ocultar detalhes',
+      visitCompany: 'Visitar o site de',
+      visitCourse: 'Ver a página do curso:',
+    },
+    contact: {
+      eyebrow: 'Contato',
+      title: 'Vamos conversar.',
+      text: 'Tem uma ideia, um projeto ou uma vaga? Me escreve.',
+      backToTop: 'Voltar ao topo',
     },
     footer: {
-      designer: 'O design deste portfólio foi criado no ',
-      code: 'e o código feito pelo ',
-      technologies: 'As tecnologias usadas são: ',
-      techConnector: ' e ',
-      published: 'publicado na Vercel.',
-      closing: 'Até a próxima! 🤘',
-      copyright: '© 2024 - Yasmin Carvalho T. de Alencar',
+      built: 'Feito com Next.js e Styled-Components. Publicado na Vercel.',
+      copyright: '© 2026 Yasmin Carvalho T. de Alencar',
     },
     metadata: {
-      title: 'Yasmin Carvalho | Desenvolvedora Frontend & Mobile',
+      title: 'Yasmin Carvalho | Desenvolvedora Full Stack',
       description:
-        'Desenvolvedora frontend e mobile especializada em React, Next.js e aplicações modernas. Crio experiências digitais com foco em performance, usabilidade e inovação.',
+        'Desenvolvedora full stack com Spring Boot e Next.js. Criadora do Studo.Flow. Crio produtos digitais com foco em performance, usabilidade e inovação.',
       keywords:
-        'Yasmin Carvalho, desenvolvedora frontend, desenvolvedora mobile, React, Next.js, portfólio, desenvolvedora web, React Native, Vue.js, Django',
-      ogTitle: 'Yasmin Carvalho | Desenvolvedora Frontend & Mobile',
+        'Yasmin Carvalho, desenvolvedora full stack, Spring Boot, Next.js, PostgreSQL, React, React Native, Studo.Flow, portfólio, desenvolvedora web',
+      ogTitle: 'Yasmin Carvalho | Desenvolvedora Full Stack',
       ogDescription:
-        'Portfólio de Yasmin Carvalho — desenvolvedora frontend e mobile especializada em tecnologias modernas como React, Next.js e Django. Criação de interfaces modernas, responsivas e de alta performance.',
+        'Portfólio de Yasmin Carvalho, desenvolvedora full stack com Spring Boot e Next.js e criadora do Studo.Flow.',
+      ogImageAlt:
+        'Yasmin Carvalho sorrindo, ao lado do texto Full stack developer, Spring Boot, Next.js e Studo.Flow',
     },
     structuredData: {
-      jobTitle: 'Desenvolvedora Frontend e Mobile',
+      jobTitle: 'Desenvolvedora Full Stack',
       description:
-        'Portfólio de Yasmin Carvalho — desenvolvedora frontend e mobile especializada em tecnologias modernas como React, Next.js e Django. Criação de interfaces modernas, responsivas e de alta performance.',
+        'Portfólio de Yasmin Carvalho, desenvolvedora full stack com Spring Boot e Next.js e criadora do Studo.Flow.',
     },
   },
   en: {
-    header: {
-      subtitle: 'Web and Mobile Developer',
-      nav: {
-        home: 'Home',
-        experience: 'Experience',
-        projects: 'Projects',
-      },
+    nav: {
+      about: 'About',
+      projects: 'Projects',
+      experience: 'Experience',
+      contact: 'Contact',
+      openMenu: 'Open menu',
+      closeMenu: 'Close menu',
       languageLabel: 'Language',
     },
-    homeAbout: {
-      paragraph1: {
-        intro:
-          'Back in 2020, I started experimenting with HTML and CSS to build websites for RP servers and JavaScript for Discord bots. Before long, I entered the job market with my first role as a web developer at a ',
-        link: 'local startup',
-        afterLink:
-          '. There, I focused on crafting scalable systems with a strong user experience.',
-      },
-      paragraph2: {
-        intro: 'Today I am part of ',
-        highlight1: 'NADIC',
-        middle:
-          ', a research hub dedicated to building technological solutions for various companies. There I contribute to projects focused on ',
-        highlight2: 'Brazilian education',
-        outro:
-          ". My goal is to use technology to contribute positively to society, always seeking to impact people's lives. I consistently focus on projects with the potential to reach wide audiences and make a difference.",
-      },
-      paragraph3: {
-        intro: 'In my free time I enjoy playing ',
+    hero: {
+      status: 'Studo.Flow is live',
+      line1: 'Full stack',
+      line2: 'developer',
+      intro:
+        'I am a full stack developer working with Spring Boot and Next.js. I turn ideas into products people actually use, from government portals to a SaaS of my own.',
+      ctaProjects: 'See projects',
+      ctaResume: 'Download CV',
+      photoAlt: 'Photo of Yasmin Carvalho smiling in a square in Italy',
+    },
+    about: {
+      eyebrow: 'About',
+      title: 'From my first HTML to a product of my own.',
+      intro:
+        'I started in 2020, writing HTML and CSS for RP server websites and JavaScript for Discord bots. Since then I have worked at a promotions startup, on nationwide public education systems, and on products for pharmacy networks. Today I am a full stack developer working with Spring Boot and Next.js, and I build Studo.Flow, my own AI study SaaS.',
+      cards: [
+        {
+          label: 'Today',
+          title: 'Studo.Flow',
+          text: 'My own SaaS. Product, interface and code at the same desk, and every decision goes through me.',
+        },
+        {
+          label: 'Craft',
+          title: 'Full stack',
+          text: 'Spring Boot and PostgreSQL on the back end, Next.js on the front end. From the database to the interface, plus mobile apps with React Native.',
+        },
+        {
+          label: 'Impact',
+          title: 'Public education',
+          text: 'Pé de Meia, RIEH and Tela Brasil: nationwide systems built for the Ministries of Education and Culture.',
+        },
+        {
+          label: 'Off the clock',
+          title: 'Games, music and travel',
+          text: '',
+        },
+      ],
+      fun: {
+        before: 'I play ',
         highlight: 'Valorant',
-        outro:
-          ' and other online games, listening to music, and watching series and films. Outside of the computer, I prioritize quality time with family and friends while also exploring new places.',
+        after:
+          ', listen to music, watch series and films, and spend time with family and friends. Whenever I can, I visit somewhere new.',
       },
     },
-    homeProjectsTitle: 'Projects',
+    projects: {
+      eyebrow: 'Projects',
+      title: 'Selected work.',
+      featuredLabel: 'Original project',
+      live: 'Live',
+      visit: 'Visit project',
+    },
     experience: {
-      professionalTitle: 'Professional',
-      academicTitle: 'Academic',
-      downloadResume: 'Download Resume',
+      eyebrow: 'Experience',
+      professionalTitle: 'Professional path.',
+      academicTitle: 'Education.',
+      downloadResume: 'Download CV',
+      showMore: 'Show details',
+      showLess: 'Hide details',
+      visitCompany: 'Visit the website of',
+      visitCourse: 'View the course page:',
+    },
+    contact: {
+      eyebrow: 'Contact',
+      title: "Let's talk.",
+      text: 'Got an idea, a project or an opening? Write to me.',
+      backToTop: 'Back to top',
     },
     footer: {
-      designer: 'The design of this portfolio was created in ',
-      code: 'and the code was built with ',
-      technologies: 'Technologies on the stack include: ',
-      techConnector: ' and ',
-      published: 'published on Vercel.',
-      closing: 'See you soon! 🤘',
-      copyright: '© 2024 - Yasmin Carvalho T. de Alencar',
+      built: 'Built with Next.js and Styled-Components. Hosted on Vercel.',
+      copyright: '© 2026 Yasmin Carvalho T. de Alencar',
     },
     metadata: {
-      title: 'Yasmin Carvalho | Frontend & Mobile Developer',
+      title: 'Yasmin Carvalho | Full Stack Developer',
       description:
-        'Frontend and mobile developer specializing in React, Next.js, and modern applications. I build digital experiences focused on performance, usability, and innovation.',
+        'Full stack developer working with Spring Boot and Next.js. Creator of Studo.Flow. I build digital products focused on performance, usability and innovation.',
       keywords:
-        'Yasmin Carvalho, frontend developer, mobile developer, React, Next.js, portfolio, web developer, React Native, Vue.js, Django',
-      ogTitle: 'Yasmin Carvalho | Frontend & Mobile Developer',
+        'Yasmin Carvalho, full stack developer, Spring Boot, Next.js, PostgreSQL, React, React Native, Studo.Flow, portfolio, web developer',
+      ogTitle: 'Yasmin Carvalho | Full Stack Developer',
       ogDescription:
-        'Portfolio of Yasmin Carvalho — frontend and mobile developer focused on modern technologies like React, Next.js, and Django. Crafting high-performance, responsive interfaces.',
+        'Portfolio of Yasmin Carvalho, full stack developer working with Spring Boot and Next.js and creator of Studo.Flow.',
+      ogImageAlt:
+        'Yasmin Carvalho smiling, next to the text Full stack developer, Spring Boot, Next.js and Studo.Flow',
     },
     structuredData: {
-      jobTitle: 'Frontend and Mobile Developer',
+      jobTitle: 'Full Stack Developer',
       description:
-        'Portfolio of Yasmin Carvalho — frontend and mobile developer focused on modern technologies like React, Next.js, and Django. Crafting high-performance, responsive interfaces.',
+        'Portfolio of Yasmin Carvalho, full stack developer working with Spring Boot and Next.js and creator of Studo.Flow.',
     },
   },
 }

@@ -1,32 +1,106 @@
+:root {
+  color-scheme: light dark;
 
-@property --gradient-angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
+  /* Fixed palette: never changes with the theme (orange card, dark bands). */
+  --ink: #000d10;
+  --white: #ffffff;
+  --midnight: #0f0f1c;
+  --charcoal: #151623;
+  --orange: #ff8a00;
+  --ash-on-dark: #a8a9b1;
+
+  /* Semantic tokens: light theme. */
+  --bg: #ffffff;
+  --surface: #f4f4f2;
+  --band: var(--midnight);
+  --text: #000d10;
+  --text-inverse: #ffffff;
+  --muted: #5f6068;
+  --line: #d5d3d4;
+  --media-bg: #d5d3d4;
+  --accent-text: #b35a00;
+  --glass: rgba(255, 255, 255, 0.78);
+  --glass-strong: rgba(255, 255, 255, 0.94);
+  --glass-border: rgba(0, 13, 16, 0.08);
+  --hover-soft: rgba(0, 13, 16, 0.06);
+  --orange-soft: #ffe7cf;
+  --hero-gradient:
+    radial-gradient(
+      60% 55% at 85% 95%,
+      rgba(255, 138, 0, 0.28) 0%,
+      rgba(255, 138, 0, 0) 70%
+    ),
+    linear-gradient(180deg, #d8e6f2 0%, #eaeff3 48%, #ffe9d3 100%);
+  --marquee-edge: transparent;
+
+  /* Layout */
+  --max-width: 75rem;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --section-gap: clamp(4.5rem, 9vw, 7.5rem);
 }
 
+/* Follows the visitor's system preference. No toggle, no stored state. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #090b11;
+    --surface: #11141c;
+    --band: #181a2e;
+    --text: #f1f1f4;
+    --text-inverse: #000d10;
+    --muted: #a8a9b1;
+    --line: rgba(255, 255, 255, 0.16);
+    --media-bg: #1d202b;
+    --accent-text: #ff8a00;
+    --glass: rgba(20, 23, 33, 0.72);
+    --glass-strong: rgba(14, 16, 24, 0.95);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --hover-soft: rgba(255, 255, 255, 0.08);
+    --orange-soft: rgba(255, 138, 0, 0.18);
+    --hero-gradient:
+      radial-gradient(
+        60% 55% at 85% 95%,
+        rgba(255, 138, 0, 0.3) 0%,
+        rgba(255, 138, 0, 0) 70%
+      ),
+      linear-gradient(180deg, #0b1020 0%, #141a33 50%, #3b2316 100%);
+    --marquee-edge: rgba(255, 255, 255, 0.14);
+  }
+}
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
-  font-family: 'Inter';
+  padding: 0;
 }
 
-html,
-body {
+html {
   max-width: 100vw;
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.61;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
 }
 
 a {
@@ -34,8 +108,50 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
+button {
+  font: inherit;
+  color: inherit;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Text for screen readers and search engines that is not shown on screen. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+::selection {
+  background: var(--orange);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
   html {
-    color-scheme: dark;
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
